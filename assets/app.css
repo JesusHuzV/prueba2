@@ -1455,6 +1455,11 @@ video {
   padding-bottom: 60px;
 }
 
+.twcss-py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .twcss-pb-4 {
   padding-bottom: 1rem;
 }
@@ -1505,6 +1510,10 @@ video {
 
 .twcss-text-end {
   text-align: end;
+}
+
+.twcss-indent-0 {
+  text-indent: 0px;
 }
 
 .twcss-text-3xl {
@@ -1923,6 +1932,14 @@ video {
 
   .lg\:twcss-w-\[300px\] {
     width: 300px;
+  }
+
+  .lg\:twcss-w-\[250px\] {
+    width: 250px;
+  }
+
+  .lg\:twcss-w-\[200px\] {
+    width: 200px;
   }
 
   .lg\:twcss-min-w-\[245px\] {

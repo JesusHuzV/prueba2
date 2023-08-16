@@ -1130,10 +1130,6 @@ video {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.twcss-flex-row {
-  flex-direction: row;
-}
-
 .twcss-flex-col {
   flex-direction: column;
 }
@@ -1415,6 +1411,11 @@ video {
   padding-bottom: 0.625rem;
 }
 
+.twcss-py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .twcss-py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1453,11 +1454,6 @@ video {
 .twcss-py-\[60px\] {
   padding-top: 60px;
   padding-bottom: 60px;
-}
-
-.twcss-py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
 }
 
 .twcss-pb-4 {
@@ -1510,10 +1506,6 @@ video {
 
 .twcss-text-end {
   text-align: end;
-}
-
-.twcss-indent-0 {
-  text-indent: 0px;
 }
 
 .twcss-text-3xl {
@@ -1595,45 +1587,6 @@ video {
   display: inline-block;
 }
 
-.odd\:twcss-bg-gray-300:nth-child(odd) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-}
-
-.odd\:twcss-bg-gray-700\/50:nth-child(odd) {
-  background-color: rgb(55 65 81 / 0.5);
-}
-
-.odd\:twcss-bg-gray-500\/50:nth-child(odd) {
-  background-color: rgb(107 114 128 / 0.5);
-}
-
-.odd\:twcss-bg-black\/70:nth-child(odd) {
-  background-color: rgb(0 0 0 / 0.7);
-}
-
-.odd\:twcss-bg-black\/10:nth-child(odd) {
-  background-color: rgb(0 0 0 / 0.1);
-}
-
-.odd\:twcss-bg-black\/30:nth-child(odd) {
-  background-color: rgb(0 0 0 / 0.3);
-}
-
-.odd\:twcss-bg-red-100:nth-child(odd) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
-
-.odd\:twcss-bg-red-300:nth-child(odd) {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-}
-
-.even\:twcss-bg-transparent:nth-child(even) {
-  background-color: transparent;
-}
-
 .empty\:twcss-block:empty {
   display: block;
 }
@@ -1665,10 +1618,6 @@ video {
 
   .sm\:twcss-grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .sm\:twcss-justify-center {
-    justify-content: center;
   }
 
   .sm\:twcss-border {
@@ -1797,14 +1746,6 @@ video {
     flex-direction: row-reverse;
   }
 
-  .md\:twcss-items-baseline {
-    align-items: baseline;
-  }
-
-  .md\:twcss-overflow-x-auto {
-    overflow-x: auto;
-  }
-
   .md\:twcss-border-transparent {
     border-color: transparent;
   }
@@ -1928,14 +1869,6 @@ video {
 
   .lg\:twcss-h-\[754px\] {
     height: 754px;
-  }
-
-  .lg\:twcss-w-\[300px\] {
-    width: 300px;
-  }
-
-  .lg\:twcss-w-\[250px\] {
-    width: 250px;
   }
 
   .lg\:twcss-w-\[200px\] {

@@ -1,73 +1,72 @@
-<section class='twcss-grid-system twcss-gap-y-10 twcss-my-[50px]'>
-  <div class='twcss-col-span-full twcss-flex twcss-flex-col twcss-justify-around md:twcss-col-span-2 lg:twcss-col-span-3 empty:twcss-block'>
-    {%- for block in section.blocks -%}
-      {%- if forloop.index <= 2 -%}
-        <div class='twcss-flex twcss-flex-col twcss-items-end twcss-mb-[65px]'>
-          {% if block.settings.image %}
-            <img
-              class='twcss-w-12'
-              src='{{ block.settings.image | image_url }}'
-              alt=''
-              width='auto'
-              height='auto'
-              loading='lazy'
-            >
-          {% endif %}
-          <h4 class='twcss-typ-h4-subtopic-2 twcss-mb-[10px] twcss-text-primary'>
-            {{ block.settings.title }}
-          </h4>
-          <p class='twcss-text-tertiary twcss-typ-body-2 twcss-text-end'>
-            {{ block.settings.descripcion }}
-          </p>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-  </div>
+<section
+  class='color-{{ section.settings.color_scheme }}'
+  style='padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;'
+>
+  <div class='twcss-grid-system twcss-gap-y-10 twcss-my-[50px]'>
+    <div class='twcss-col-span-full twcss-flex twcss-flex-col twcss-justify-around md:twcss-col-span-2 lg:twcss-col-span-3 empty:twcss-block'>
+      {%- for block in section.blocks -%}
+        {%- if forloop.index <= 2 -%}
+          <div class='twcss-flex twcss-flex-col twcss-items-end twcss-mb-[65px]'>
+            {% if block.settings.image %}
+              <img
+                class='twcss-w-12'
+                src='{{ block.settings.image | image_url }}'
+                alt=''
+                width='auto'
+                height='auto'
+                loading='lazy'
+              >
+            {% endif %}
+            <h4 class='twcss-typ-h4-subtopic-2 twcss-mb-[10px] twcss-text-primary'>
+              {{ block.settings.title }}
+            </h4>
+            <p class='twcss-text-tertiary twcss-typ-body-2 twcss-text-end'>
+              {{ block.settings.descripcion }}
+            </p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
 
-  <div class='twcss-col-span-full twcss-m-auto md:twcss-col-span-4 lg:twcss-col-span-6'>
-    {% if section.settings.backogrund %}
-      <img
-        src='{{ section.settings.backogrund | image_url }}'
-        class='twcss-object-cover twcss-max-h-[700px]'
-        width='auto'
-        height='auto'
-        loading='lazy'
-      >
-    {% else %}
-      <img
-        class='twcss-object-cover twcss-max-h-[700px]'
-        src='https://dummyimage.com/500x700'
-        width='auto'
-        height='auto'
-        loading='lazy'
-      >
-    {% endif %}
-  </div>
+    <div class='twcss-col-span-full twcss-m-auto md:twcss-col-span-4 lg:twcss-col-span-6'>
+      {% if section.settings.backogrund %}
+        <img
+          src='{{ section.settings.backogrund | image_url }}'
+          class='twcss-object-cover twcss-max-h-[700px]'
+          width='auto'
+          height='auto'
+          loading='lazy'
+        >
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'twcss-h-full twcss-w-full' }}
+      {% endif %}
+    </div>
 
-  <div class='twcss-col-span-full twcss-flex twcss-flex-col twcss-justify-around md:twcss-col-span-2 lg:twcss-col-span-3 empty:twcss-block'>
-    {%- for block in section.blocks -%}
-      {%- if forloop.index >= 3 -%}
-        <div class='twcss-flex twcss-flex-col twcss-items-start twcss-mb-[65px]'>
-          {% if block.settings.image %}
-            <img
-              class='twcss-w-12'
-              src='{{ block.settings.image | image_url }}'
-              alt=''
-              width='auto'
-              height='auto'
-              loading='lazy'
-            >
-          {% endif %}
+    <div class='twcss-col-span-full twcss-flex twcss-flex-col twcss-justify-around md:twcss-col-span-2 lg:twcss-col-span-3 empty:twcss-block'>
+      {%- for block in section.blocks -%}
+        {%- if forloop.index >= 3 -%}
+          <div class='twcss-flex twcss-flex-col twcss-items-start twcss-mb-[65px]'>
+            {% if block.settings.image %}
+              <img
+                class='twcss-w-12'
+                src='{{ block.settings.image | image_url }}'
+                alt=''
+                width='auto'
+                height='auto'
+                loading='lazy'
+              >
+            {% endif %}
 
-          <h4 class='twcss-typ-h4-subtopic-2 twcss-mb-[10px] twcss-text-primary'>
-            {{ block.settings.title }}
-          </h4>
-          <p class='twcss-text-tertiary twcss-typ-body-2'>
-            {{ block.settings.descripcion }}
-          </p>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
+            <h4 class='twcss-typ-h4-subtopic-2 twcss-mb-[10px] twcss-text-primary'>
+              {{ block.settings.title }}
+            </h4>
+            <p class='twcss-text-tertiary twcss-typ-body-2'>
+              {{ block.settings.descripcion }}
+            </p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
   </div>
 </section>
 
@@ -82,6 +81,32 @@
       "type": "image_picker",
       "id": "backogrund",
       "label": "Background"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
     }
   ],
   "blocks": [

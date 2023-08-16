@@ -21,7 +21,8 @@
 </style>
 <section
   id='{{ section.id }}'
-  class='twcss-flex twcss-py-8 twcss-px-4 twcss-bg-primary md:twcss-px-7 lg:twcss-py-[100px] lg:twcss-px-[120px]'
+
+  class='twcss-flex twcss-py-8 twcss-px-4 twcss-bg-primary md:twcss-px-7 lg:twcss-py-[100px] lg:twcss-px-[120px] color-{{ section.settings.color_scheme }}'
 >
   <div class='container-scroll twcss-flex twcss-w-full twcss-gap-4 twcss-overflow-x-auto twcss-py-5'>
     {% for block in section.blocks %}
@@ -36,12 +37,7 @@
               height='auto'
             >
           {% else %}
-            <img
-              src='https://dummyimage.com/250x250'
-              width='auto'
-              height='auto'
-              loading='lazy'
-            >
+            {{ 'image' | placeholder_svg_tag: 'twcss-h-full twcss-w-full' }}
           {% endif %}
         </a>
       </div>
@@ -54,7 +50,14 @@
   "name": "Image list",
   "tag": "section",
   "class": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    }
+  ],
   "blocks": [
     {
       "type": "item",

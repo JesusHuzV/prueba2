@@ -1290,6 +1290,11 @@ video {
   border-color: transparent;
 }
 
+.twcss-border-cyan-50 {
+  --tw-border-opacity: 1;
+  border-color: rgb(236 254 255 / var(--tw-border-opacity));
+}
+
 .twcss-border-opacity-50 {
   --tw-border-opacity: 0.5;
 }
@@ -1465,6 +1470,11 @@ video {
 .twcss-py-\[60px\] {
   padding-top: 60px;
   padding-bottom: 60px;
+}
+
+.twcss-py-14 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .twcss-pb-4 {

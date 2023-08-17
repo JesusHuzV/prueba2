@@ -572,6 +572,15 @@ video {
   }
 }
 
+.\!twcss-grid-system {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  -moz-column-gap: 1rem !important;
+  column-gap: 1rem !important;
+}
+
 .twcss-grid-system {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -582,6 +591,12 @@ video {
 }
 
 @media (min-width: 750px) {
+  .\!twcss-grid-system {
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+  }
+
   .twcss-grid-system {
     margin-left: 2rem;
     margin-right: 2rem;
@@ -590,6 +605,14 @@ video {
 }
 
 @media (min-width: 990px) {
+  .\!twcss-grid-system {
+    margin-left: 120px !important;
+    margin-right: 120px !important;
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+    -moz-column-gap: 1.25rem !important;
+    column-gap: 1.25rem !important;
+  }
+
   .twcss-grid-system {
     margin-left: 120px;
     margin-right: 120px;
@@ -600,6 +623,12 @@ video {
 }
 
 @media (min-width: 1440px) {
+  .\!twcss-grid-system {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 1296px !important;
+  }
+
   .twcss-grid-system {
     margin-left: auto;
     margin-right: auto;
@@ -1393,16 +1422,6 @@ video {
   padding-bottom: 4rem;
 }
 
-.twcss-py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.twcss-py-2\.5 {
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
-}
-
 .twcss-py-20 {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -1917,10 +1936,6 @@ video {
     min-width: 400px;
   }
 
-  .lg\:twcss-max-w-\[--large-max-width\] {
-    max-width: var(--large-max-width);
-  }
-
   .lg\:twcss-grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1958,11 +1973,6 @@ video {
   .lg\:twcss-px-\[75px\] {
     padding-left: 75px;
     padding-right: 75px;
-  }
-
-  .lg\:twcss-px-\[84px\] {
-    padding-left: 84px;
-    padding-right: 84px;
   }
 
   .lg\:twcss-py-\[100px\] {

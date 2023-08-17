@@ -1,5 +1,5 @@
 <section
-  class='twcss-w-full twcss-bg-[#] twcss-py-10'
+  class='twcss-w-full twcss-bg-[#] twcss-py-10 color-{{ section.settings.color_scheme }}'
   style='margin-bottom: {{ section.settings.margin_bottom }}px; margin-top: {{ section.settings.margin_top }}px;'
 >
   <div class='twcss-grid-system'>
@@ -23,6 +23,12 @@
   "name": "Tabs",
   "tag": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
     {
       "type": "range",
       "id": "margin_top",

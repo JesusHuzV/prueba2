@@ -1,59 +1,67 @@
-<section
-  style='margin-bottom: {{ section.settings.margin_bottom }}px; margin-top: {{ section.settings.margin_top }}px;'
-  class='twcss-grid-system'
->
-  <table class='twcss-min-w-full twcss-mt-5 twcss-col-span-full'>
-    <thead>
-      <tr>
-        {%- if section.settings.disabled_column_1 == true -%}
-          <th
-            scope='col'
-            class='font-medium twcss-px-6 twcss-py-3'
-          >
-            {{ section.settings.title_column_1 }}
-          </th>
-        {%- endif -%}
-        {%- if section.settings.disabled_column_2 == true -%}
-          <th
-            scope='col'
-            class='font-medium twcss-px-6 twcss-py-3'
-          >
-            {{ section.settings.title_column_2 }}
-          </th>
-        {%- endif -%}
-        {%- if section.settings.disabled_column_3 == true -%}
-          <th
-            scope='col'
-            class='font-medium twcss-px-6 twcss-py-3'
-          >
-            {{ section.settings.title_column_3 }}
-          </th>
-        {%- endif -%}
-      </tr>
-    </thead>
+<style>
+  .row-color-{{ section.id }}:nth-child(odd) {
+      background-color: rgb(0 0 0 / {{ section.settings.opacity | divided_by: 100.0 }});
+  }
+</style>
 
-    <tbody>
-      {%- for block in section.blocks -%}
-        <tr class='odd:twcss-bg-box-background even:twcss-transparent'>
+<section class='color-{{ section.settings.color_scheme }}'>
+  <div
+    style='margin-bottom: {{ section.settings.margin_bottom }}px; margin-top: {{ section.settings.margin_top }}px;'
+    class='twcss-grid-system twcss-py-10'
+  >
+    <table class='twcss-min-w-full twcss-mt-5 twcss-col-span-full'>
+      <thead>
+        <tr>
           {%- if section.settings.disabled_column_1 == true -%}
-            <td class='twcss-px-6 twcss-py-4 twcss-whitespace-nowrap twcss-text-center'>
-              {{ block.settings.column_1 }}
-            </td>
+            <th
+              scope='col'
+              class='font-medium twcss-px-6 twcss-py-3'
+            >
+              {{ section.settings.title_column_1 }}
+            </th>
           {%- endif -%}
           {%- if section.settings.disabled_column_2 == true -%}
-            <td class='twcss-px-6 twcss-py-4 twcss-whitespace-nowrap twcss-text-center'>
-              {{ block.settings.column_2 }}
-            </td>
+            <th
+              scope='col'
+              class='font-medium twcss-px-6 twcss-py-3'
+            >
+              {{ section.settings.title_column_2 }}
+            </th>
           {%- endif -%}
           {%- if section.settings.disabled_column_3 == true -%}
-            <td class='twcss-px-6 twcss-py-4 twcss-whitespace-nowrap twcss-text-center'>
-              {{ block.settings.column_3 }}
-            </td>
+            <th
+              scope='col'
+              class='font-medium twcss-px-6 twcss-py-3'
+            >
+              {{ section.settings.title_column_3 }}
+            </th>
           {%- endif -%}
         </tr>
-      {%- endfor %}
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        {%- for block in section.blocks -%}
+          <tr class='row-color-{{ section.id }}'>
+            {%- if section.settings.disabled_column_1 == true -%}
+              <td class='twcss-px-6 twcss-py-4 twcss-whitespace-nowrap twcss-text-center'>
+                {{ block.settings.column_1 }}
+              </td>
+            {%- endif -%}
+            {%- if section.settings.disabled_column_2 == true -%}
+              <td class='twcss-px-6 twcss-py-4 twcss-whitespace-nowrap twcss-text-center'>
+                {{ block.settings.column_2 }}
+              </td>
+            {%- endif -%}
+            {%- if section.settings.disabled_column_3 == true -%}
+              <td class='twcss-px-6 twcss-py-4 twcss-whitespace-nowrap twcss-text-center'>
+                {{ block.settings.column_3 }}
+              </td>
+            {%- endif -%}
+          </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
 </section>
 
 {% schema %}
@@ -61,6 +69,12 @@
   "name": "Table",
   "tag": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    },
     {
       "type": "range",
       "id": "margin_top",
@@ -80,6 +94,16 @@
       "unit": "px",
       "label": "Margin bottom",
       "default": 36
+    },
+    {
+      "type": "range",
+      "id": "opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "label": "Row opacity",
+      "default": 30
     },
     {
       "type": "text",

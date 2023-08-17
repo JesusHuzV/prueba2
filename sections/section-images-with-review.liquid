@@ -4,58 +4,79 @@
       class='twcss-grid-system twcss-mt-4 twcss-gap-5 twcss-pb-[58px] lg:twcss-mt-[50px]'
     >
       <div class='twcss-col-span-full md:twcss-col-span-4 lg:twcss-col-span-6'>
-        {% if section.settings.main_image %}
-          <img
-            src='{{ section.settings.main_image | image_url }}'
-            class='twcss-w-full twcss-object-cover md:twcss-h-[684px] lg:twcss-h-[1040px]'
-            alt='product-image'
-            loading='lazy'
-            width='auto'
-            height='auto'
-          >
-        {% else %}
-          {{ 'collection-5' | placeholder_svg_tag: 'placeholder-svg' }}
-        {% endif %}
-        <div class='twcss-mt-[10px] twcss-flex twcss-items-center twcss-gap-2 [&>.icon-caret]:twcss-w-3 [&>.icon-caret]:-twcss-rotate-90'>
-          <h4 class='twcss-typ-h4-subtopic-2 twcss-text-primary'>
-            {{ section.settings.first_title | link_to: section.settings.first_link }}
-          </h4>
-          {% render 'icon-caret' %}
-        </div>
-      </div>
-      <div class='twcss-col-span-full md:twcss-col-span-4 lg:twcss-col-span-6'>
-        <div class='twcss-flex twcss-flex-col twcss-gap-5'>
-          <div class='twcss-h-[400px] twcss-bg-primary md:twcss-h-[332px] lg:twcss-h-[510px]'>
-            {% liquid
-              for block in section.blocks
-                case block.type
-                  when 'comment'
-                    render 'snippet-comment', comment: block.settings.comment, author: block.settings.author, charge: block.settings.charge
-                  when 'center-comment'
-                    render 'snippet-center-comment', eyebrow: block.settings.eyebrow, title: block.settings.title, comment: block.settings.comment
-                endcase
-              endfor
-            %}
-          </div>
-
-          {% if section.settings.second_image %}
+        <div class='twcss-w-full twcss-h-full twcss-flex twcss-flex-col'>
+          {% if section.settings.main_image %}
             <img
-              src='{{ section.settings.second_image | image_url }}'
-              class='twcss-h-full twcss-w-full twcss-object-cover md:twcss-h-[332px] lg:twcss-h-[510px]'
+              src='{{ section.settings.main_image | image_url }}'
+              class='twcss-w-full twcss-object-cover twcss-flex-1'
               alt='product-image'
               loading='lazy'
               width='auto'
               height='auto'
             >
           {% else %}
-            {{ 'collection-5' | placeholder_svg_tag: 'placeholder-svg' }}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: 'twcss-w-full twcss-h-full' }}
           {% endif %}
+          <div class='twcss-mt-[10px] twcss-flex twcss-items-center twcss-gap-2 [&>.icon-caret]:twcss-w-3 [&>.icon-caret]:-twcss-rotate-90'>
+            <h4 class='twcss-typ-h4-subtopic-2 twcss-text-primary'>
+              {{ section.settings.first_title | link_to: section.settings.first_link }}
+            </h4>
+            {% render 'icon-caret' %}
+          </div>
         </div>
-        <div class='twcss-mt-[10px] twcss-flex twcss-items-center twcss-gap-2 [&>.icon-caret]:twcss-w-3 [&>.icon-caret]:-twcss-rotate-90'>
-          <h4 class='twcss-typ-h4-subtopic-2 twcss-text-primary'>
-            {{ section.settings.second_title | link_to: section.settings.second_link }}
-          </h4>
-          {% render 'icon-caret' %}
+      </div>
+
+      <div class='twcss-col-span-full md:twcss-col-span-4 lg:twcss-col-span-6'>
+        <div class='twcss-flex twcss-flex-col twcss-gap-5'>
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'comment' %}
+                <div
+                  class='twcss-h-1/2 twcss-min-h-[400px] twcss-flex twcss-items-center twcss-justify-center'
+                  style='background: {{ block.settings.background_color }}'
+                >
+                  {% render 'snippet-comment',
+                    comment: block.settings.comment,
+                    author: block.settings.author,
+                    charge: block.settings.charge
+                  %}
+                </div>
+              {% when 'center-comment' %}
+                <div
+                  class='twcss-h-1/2 twcss-min-h-[400px] twcss-flex twcss-items-center twcss-justify-center'
+                  style='background: {{ block.settings.background_color }}'
+                >
+                  {% render 'snippet-center-comment',
+                    eyebrow: block.settings.eyebrow,
+                    title: block.settings.title,
+                    comment: block.settings.comment
+                  %}
+                </div>
+            {% endcase %}
+          {% endfor %}
+          <div
+            class='twcss-h-1/2 twcss-min-h-[400px] twcss-flex twcss-flex-col'
+          >
+            {% if section.settings.second_image %}
+              <img
+                src='{{ section.settings.second_image | image_url }}'
+                class='twcss-h-full twcss-w-full twcss-object-cover twcss-flex-1'
+                alt='product-image'
+                loading='lazy'
+                width='auto'
+                height='auto'
+              >
+            {% else %}
+              {{ 'hero-apparel-1' | placeholder_svg_tag: 'twcss-w-full twcss-h-full twcss-flex-1' }}
+            {% endif %}
+
+            <div class='twcss-mt-[10px] twcss-flex twcss-items-center twcss-gap-2 [&>.icon-caret]:twcss-w-3 [&>.icon-caret]:-twcss-rotate-90'>
+              <h4 class='twcss-typ-h4-subtopic-2 twcss-text-primary'>
+                {{ section.settings.second_title | link_to: section.settings.second_link }}
+              </h4>
+              {% render 'icon-caret' %}
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -70,8 +91,7 @@
               <a href='{{ section.settings.first_link }}'>
                 <img
                   src='{{ section.settings.main_image | image_url }}'
-                  class='twcss-w-full twcss-object-cover'
-                  style='max-height: 500px;'
+                  class='twcss-w-full twcss-h-full twcss-object-cover twcss-max-h-[400px]'
                   alt='product-image'
                   loading='lazy'
                   width='auto'
@@ -81,8 +101,7 @@
             {% else %}
               <img
                 src='{{ section.settings.main_image | image_url }}'
-                class='twcss-w-full twcss-object-cover'
-                style='max-height: 500px;'
+                class='twcss-w-full twcss-h-full twcss-object-cover twcss-max-h-[400px]'
                 alt='product-image'
                 loading='lazy'
                 width='auto'
@@ -91,7 +110,7 @@
             {% endif %}
           </div>
         {% else %}
-          <img src='https://dummyimage.com/720x600' width='auto' height='auto' loading='lazy'>
+          {{ 'hero-apparel-1' | placeholder_svg_tag: 'twcss-w-full twcss-h-full twcss-flex-1' }}
         {% endif %}
       </div>
       <div class='twcss-col-span-full'>
@@ -102,7 +121,7 @@
                 <a href='{{ section.settings.second_link }}'>
                   <img
                     src='{{ section.settings.second_image | image_url }}'
-                    class='twcss-h-full twcss-w-full twcss-object-cover md:twcss-h-[332px] lg:twcss-h-[510px]'
+                    class='twcss-h-full twcss-w-full twcss-object-cover twcss-flex-1'
                     alt='product-image'
                     loading='lazy'
                     width='auto'
@@ -112,7 +131,7 @@
               {% else %}
                 <img
                   src='{{ section.settings.second_image | image_url }}'
-                  class='twcss-h-full twcss-w-full twcss-object-cover md:twcss-h-[332px] lg:twcss-h-[510px]'
+                  class='twcss-h-full twcss-w-full twcss-object-cover twcss-flex-1'
                   alt='product-image'
                   loading='lazy'
                   width='auto'
@@ -122,22 +141,40 @@
             </div>
           {% else %}
             <div class='twcss-col-span-full lg:twcss-col-span-6'>
-              <img src='https://dummyimage.com/600x600' width='auto' height='auto' loading='lazy'>
+              {{ 'hero-apparel-1' | placeholder_svg_tag: 'twcss-w-full twcss-h-full twcss-flex-1' }}
             </div>
           {% endif %}
-          <div
-            class='twcss-col-span-full lg:twcss-col-span-6 twcss-relative twcss-h-[400px] twcss-bg-primary md:twcss-h-[332px] lg:twcss-h-[510px]'
-          >
-            {% liquid
-              for block in section.blocks
-                case block.type
-                  when 'comment'
-                    render 'snippet-comment', comment: block.settings.comment, author: block.settings.author, charge: block.settings.charge
-                  when 'center-comment'
-                    render 'snippet-center-comment', eyebrow: block.settings.eyebrow, title: block.settings.title, comment: block.settings.comment
-                endcase
-              endfor
-            %}
+          <div class='twcss-col-span-full lg:twcss-col-span-6 twcss-relative'>
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'comment' %}
+                  <div
+                    class='twcss-h-full twcss-flex twcss-justify-center twcss-items-center'
+                    style='background: {{ block.settings.background_color }}'
+                  >
+                    <div>
+                      {% render 'snippet-comment',
+                        comment: block.settings.comment,
+                        author: block.settings.author,
+                        charge: block.settings.charge
+                      %}
+                    </div>
+                  </div>
+                {% when 'center-comment' %}
+                  <div
+                    class='twcss-h-full twcss-flex twcss-justify-center twcss-items-center'
+                    style='background: {{ block.settings.background_color }}'
+                  >
+                    <div>
+                      {% render 'snippet-center-comment',
+                        eyebrow: block.settings.eyebrow,
+                        title: block.settings.title,
+                        comment: block.settings.comment
+                      %}
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -204,6 +241,12 @@
       "name": "Comment",
       "settings": [
         {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background",
+          "default": "#000"
+        },
+        {
           "type": "textarea",
           "id": "comment",
           "label": "Comment",
@@ -227,6 +270,12 @@
       "type": "center-comment",
       "name": "Center comment",
       "settings": [
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background",
+          "default": "#000"
+        },
         {
           "type": "text",
           "id": "eyebrow",

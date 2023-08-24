@@ -7,8 +7,8 @@
   <div class='twcss-container twcss-px-5 twcss-mx-auto twcss-max-w-[1200px]'>
     {% if section.settings.title %}
       <h2 
-        class='{{ section.settings.title_align }} {{ section.settings.title_transform }} twcss-mb-4 twcss-text-[length:--font-size] twcss-text-[color:--font-color] twcss-font-[--font-weight]'
-        style='--font-size: {{ section.settings.title_size }}px; --font-color: {{ section.settings.title_color }}; --font-weight: {{ section.settings.title_weight }};'
+        class='{{ section.settings.title_align }} {{ section.settings.title_transform }} twcss-mb-4 twcss-text-[length:--font-size] twcss-text-foreground twcss-font-[--font-weight]'
+        style='--font-size: {{ section.settings.title_size }}px; --font-weight: {{ section.settings.title_weight }};'
       >
         {{ section.settings.title }}
       </h2>
@@ -16,8 +16,8 @@
 
     {% if section.settings.text %}
       <div 
-        class='twcss-mb-8 twcss-leading-[1.2] twcss-text-[length:--font-size] twcss-text-[color:--font-color]'
-        style='--font-size: {{ section.settings.text_size }}px; --font-color: {{ section.settings.text_color }}; text-align: {{ section.settings.text_align }};'
+        class='twcss-mb-8 twcss-leading-[1.2] twcss-text-[length:--font-size] twcss-text-foreground'
+        style='--font-size: {{ section.settings.text_size }}px; text-align: {{ section.settings.text_align }};'
       >
         {{ section.settings.text }}
       </div>
@@ -231,12 +231,6 @@
       "default": 42
     },
     {
-      "type": "color",
-      "id": "title_color",
-      "label": "Color Title",
-      "default": "#4A5568"
-    },
-    {
       "type": "select",
       "id": "title_align",
       "options": [
@@ -271,12 +265,6 @@
       "unit": "px",
       "label": "Font Size Text",
       "default": 20
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Color Text",
-      "default": "#718096"
     },
     {
       "type": "select",

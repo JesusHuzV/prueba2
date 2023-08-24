@@ -5,8 +5,8 @@
   <div class='{% if section.settings.full_width %}twcss-w-full{% else %}twcss-container twcss-px-5 twcss-mx-auto{% endif %}'>
     {% if section.settings.title != blank %}
       <h2 
-        class='twcss-text-{{ section.settings.title_align }} {{ section.settings.title_transform }} twcss-pb-4 twcss-text-[length:--font-size] twcss-text-[color:--font-color] twcss-font-[--font-weight]'
-        style='--font-size: {{ section.settings.title_size }}px; --font-color: {{ section.settings.title_color }}; --font-weight: {{ section.settings.title_weight }};'
+        class='twcss-text-{{ section.settings.title_align }} {{ section.settings.title_transform }} twcss-pb-4 twcss-text-[length:--font-size] twcss-text-foreground twcss-font-[--font-weight]'
+        style='--font-size: {{ section.settings.title_size }}px; --font-weight: {{ section.settings.title_weight }};'
       >
         {{ section.settings.title }}
       </h2>
@@ -14,8 +14,8 @@
 
     {% if section.settings.text != blank %}
       <div 
-        class='twcss-mb-8 twcss-text-[length:--font-size] twcss-text-[color:--font-color] twcss-leading-[1.2]'
-        style='--font-size: {{ section.settings.text_size }}px; --font-color: {{ section.settings.text_color }}; text-align: {{ section.settings.text_align }};'
+        class='twcss-mb-8 twcss-text-[length:--font-size] twcss-text-foreground twcss-leading-[1.2]'
+        style='--font-size: {{ section.settings.text_size }}px; text-align: {{ section.settings.text_align }};'
       >
         {{ section.settings.text }}
       </div>
@@ -150,12 +150,6 @@
       "default": 42
     },
     {
-      "type": "color",
-      "id": "title_color",
-      "label": "Color Title",
-      "default": "#4A5568"
-    },
-    {
       "type": "select",
       "id": "title_align",
       "options": [
@@ -194,12 +188,6 @@
       "unit": "px",
       "label": "Font Size Text",
       "default": 20
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Color Text",
-      "default": "#718096"
     },
     {
       "type": "select",

@@ -43,6 +43,8 @@ module.exports = {
     './templates/customers/*.liquid',
     './sections/*.liquid',
     './snippets/*.liquid',
+    './src/**/*.tsx',
+    '!./assets/__packages__*.js',
   ],
   theme: {
     screens: {

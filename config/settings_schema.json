@@ -1459,5 +1459,19 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       }
     ]
-  }
+  },
+    {
+      "name": "Storefront API settings",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Settings for the Storefront API, used to fetch products and collections on JavaScript."
+        },
+        {
+          "type": "text",
+          "id": "storefront_access_token",
+          "label": "Storefront Access Token"
+        }
+      ]
+    }
 ]

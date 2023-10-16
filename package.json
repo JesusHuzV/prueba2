@@ -2,26 +2,43 @@
   "name": "dawn-tailwind-starter",
   "version": "1.0.0",
   "description": "[![Build status](https://github.com/shopify/dawn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Shopify/dawn/actions/workflows/ci.yml?query=branch%3Amain) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=informational)](/.github/CONTRIBUTING.md)",
-  "main": "index.js",
-  "scripts": {
-    "dev": "run-p dev:tailwind dev:shopify",
-    "dev:tailwind": "tailwindcss -i assets/app-tailwind.css -o assets/app.css -w",
-    "dev:bundle": "vite build --watch",
-    "dev:shopify": "shopify theme dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+  "homepage": "https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base#readme",
+  "bugs": {
+    "url": "https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base.git"
   },
-  "author": "Trellis",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base/issues"
+  "author": "Trellis",
+  "main": "index.js",
+  "scripts": {
+    "build:codegen": "graphql-codegen --config ./src/graphql/codegen.ts",
+    "dev": "run-p dev:tailwind dev:shopify",
+    "dev:bundle": "vite build --watch",
+    "dev:codegen": "graphql-codegen --config ./src/graphql/codegen.ts -w",
+    "dev:shopify": "shopify theme dev",
+    "dev:tailwind": "tailwindcss -i assets/app-tailwind.css -o assets/app.css -w",
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/TrellisCommerce/shopify-dawn-tailwind-starter-base#readme",
+  "lint-staged": {
+    "*.{js,css}": "prettier --write"
+  },
+  "prettier": "@trelliscommerce/prettier-config",
+  "dependencies": {
+    "@solid-primitives/graphql": "^2.0.1",
+    "@trelliscommerce/prettier-config": "^1.0.0",
+    "graphql": "^16.8.1",
+    "npm-run-all": "^4.1.5",
+    "solid-js": "^1.8.0",
+    "zod": "^3.22.4"
+  },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/typescript": "4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
     "@types/node": "^20.8.4",
     "autoprefixer": "^10.4.13",
     "husky": "^7.0.4",
@@ -33,15 +50,5 @@
     "typescript": "^5.2.2",
     "vite": "^4.4.11",
     "vite-plugin-solid": "^2.7.0"
-  },
-  "dependencies": {
-    "@trelliscommerce/prettier-config": "^1.0.0",
-    "npm-run-all": "^4.1.5",
-    "solid-js": "^1.8.0",
-    "zod": "^3.22.4"
-  },
-  "prettier": "@trelliscommerce/prettier-config",
-  "lint-staged": {
-    "*.{js,css}": "prettier --write"
   }
 }

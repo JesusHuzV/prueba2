@@ -34,12 +34,12 @@
         </div>
       {% endif %}
       <div class='twcss-text-center md:twcss-ml-4 md:twcss-text-start twcss-flex twcss-flex-col twcss-justify-center md:twcss-w-1/2'>
-        <h2 class=' twcss-mb-[10px] twcss-uppercase'>
+        <h2 class=' twcss-mb-[10px] twcss-uppercase rich-text__heading rte inline-richtext {{ section.settings.heading_size }}'>
           {{ section.settings.text }}
         </h2>
-        <p class=' twcss-mb-[20px] twcss-uppercase twcss-font-bold'>
+        <div class='twcss-mb-[20px] twcss-uppercase rich-text__text rte '>
           {{ section.settings.description }}
-        </p>
+        </div>
         <div>
           <a
             href='{{ section.settings.url }}'
@@ -96,16 +96,40 @@
       "label": "Background"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "text",
       "label": "Text",
       "default": "Find a store near you"
     },
     {
-      "type": "textarea",
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est provident placeat unde tempore repellat facere nam, possimus molestias quisquam officiis!"
+      "default": "<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est provident placeat unde tempore repellat facere nam, possimus molestias quisquam officiis!</p>"
     },
     {
       "type": "header",

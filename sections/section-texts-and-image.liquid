@@ -3,11 +3,11 @@
     class='twcss-mx-auto twcss-flex twcss-max-w-[1920px] twcss-flex-wrap-reverse twcss-justify-center {% if section.settings.reverse_content == true %} md:twcss-flex-row-reverse {% endif %}'
     style='margin-bottom: {{ section.settings.margin_bottom }}px; margin-top: {{ section.settings.margin_top }}px;'
   >
-    <div class='twcss-flex twcss-w-full twcss-flex-col twcss-justify-center {% if section.settings.reverse_color == 'dark' %} twcss-bg-primary twcss-text-box-background {% else %} twcss-bg-box-background twcss-text-primary {% endif %} twcss-py-[60px]  twcss-px-4 md:twcss-w-1/2 md:twcss-pl-8 md:twcss-pr-4 lg:twcss-py-[130px] lg:twcss-px-[100px]'>
+    <div class='twcss-flex twcss-w-full twcss-flex-col twcss-justify-center twcss-py-[60px] twcss-px-4 md:twcss-w-1/2 md:twcss-pl-8 md:twcss-pr-4 lg:twcss-py-[130px] lg:twcss-px-[100px]'>
       {% if section.settings.small_image %}
         <img
           src='{{ section.settings.small_image | image_url }}'
-          class='twcss-mb-3 twcss-w-8 twcss-h-8 twcss-rounded-full lg:twcss-hidden'
+          class='twcss-mb-3 twcss-w-8 twcss-h-8 twcss-rounded-full lg:twcss-hidden twcss-object-cover twcss-min-h-[500px]'
           alt='logo'
           loading='lazy'
           width='auto'
@@ -19,17 +19,17 @@
           | placeholder_svg_tag: 'twcss-mb-3 twcss-w-8 twcss-h-8 twcss-rounded-full lg:twcss-hidden'
         }}
       {% endif %}
-      <h2 class='twcss-mb-3 twcss-typ-h2-subheading-b lg:twcss-mb-5'>
+      <h2 class='twcss-mb-3 lg:twcss-mb-5 rich-text__heading rte inline-richtext {{ section.settings.heading_size }}'>
         {{ section.settings.title }}
       </h2>
-      <p class='twcss-mb-7 twcss-typ-body-2 lg:twcss-mb-5'>
+      <div class='twcss-mb-7 lg:twcss-mb-5 rich-text__text rte'>
         {{ section.settings.descripcion }}
-      </p>
-      <div class='twcss-flex twcss-w-full twcss-flex-col twcss-gap-4 md:twcss-flex-row'>
+      </div>
+      <div class='twcss-flex twcss-w-full twcss-flex-col twcss-gap-4 md:twcss-flex-row twcss-flex-wrap'>
         {%- if section.settings.show_button_1 == true -%}
           <a
             href='{{ section.settings.link_button_1 }}'
-            class='twcss-button {% if section.settings.reverse_color == 'light' %} twcss-button-primary {% else %} twcss-button-primary-dark {% endif %}'
+            class='button twcss-block twcss-w-full {% if section.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}'
           >
             {{ section.settings.text_button_1 }}
           </a>
@@ -38,7 +38,7 @@
         {%- if section.settings.show_button_2 == true -%}
           <a
             href='{{ section.settings.link_button_2 }}'
-            class='twcss-button {% if section.settings.reverse_color == 'light' %} twcss-button-secondary {% else %} twcss-button-secondary-dark {% endif %}'
+            class='button twcss-block twcss-w-full {% if section.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}'
           >
             {{ section.settings.text_button_2 }}
           </a>
@@ -110,32 +110,40 @@
       "label": "Container size"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "title",
       "label": "title",
       "default": "Title text"
     },
     {
-      "type": "textarea",
-      "id": "descripcion",
-      "label": "descripcion",
-      "default": "Descripcion text"
-    },
-    {
       "type": "select",
-      "id": "reverse_color",
+      "id": "heading_size",
       "options": [
         {
-          "value": "dark",
-          "label": "Style 1"
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
         },
         {
-          "value": "light",
-          "label": "Style 2"
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
         }
       ],
-      "default": "light",
-      "label": "Style"
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "descripcion",
+      "label": "descripcion",
+      "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
     },
     {
       "type": "checkbox",
@@ -176,6 +184,12 @@
       "default": "/"
     },
     {
+      "type": "checkbox",
+      "id": "button_style_secondary_1",
+      "default": false,
+      "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
+    },
+    {
       "type": "header",
       "content": "Button 2"
     },
@@ -196,6 +210,12 @@
       "id": "link_button_2",
       "label": "Link",
       "default": "/"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary_2",
+      "default": false,
+      "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
     }
   ],
   "presets": [

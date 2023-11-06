@@ -640,12 +640,12 @@ video {
   position: fixed;
 }
 
-.twcss-absolute {
-  position: absolute;
-}
-
 .\!twcss-absolute {
   position: absolute !important;
+}
+
+.twcss-absolute {
+  position: absolute;
 }
 
 .twcss-relative {
@@ -660,8 +660,20 @@ video {
   inset: 0px;
 }
 
+.twcss-bottom-0 {
+  bottom: 0px;
+}
+
+.twcss-left-0 {
+  left: 0px;
+}
+
 .twcss-left-1\/2 {
   left: 50%;
+}
+
+.twcss-right-0 {
+  right: 0px;
 }
 
 .twcss-right-5 {
@@ -682,18 +694,6 @@ video {
 
 .twcss-top-5 {
   top: 1.25rem;
-}
-
-.twcss-bottom-0 {
-  bottom: 0px;
-}
-
-.twcss-left-0 {
-  left: 0px;
-}
-
-.twcss-right-0 {
-  right: 0px;
 }
 
 .twcss-z-0 {
@@ -986,16 +986,12 @@ video {
   height: 300px;
 }
 
-.twcss-h-full {
-  height: 100%;
-}
-
 .twcss-h-\[500px\] {
   height: 500px;
 }
 
-.twcss-h-screen {
-  height: 100vh;
+.twcss-h-full {
+  height: 100%;
 }
 
 .twcss-max-h-\[200px\] {
@@ -1240,6 +1236,10 @@ video {
 
 .twcss-gap-5 {
   gap: 1.25rem;
+}
+
+.twcss-gap-8 {
+  gap: 2rem;
 }
 
 .twcss-gap-x-5 {
@@ -1865,6 +1865,14 @@ video {
     flex-direction: row-reverse;
   }
 
+  .md\:twcss-items-start {
+    align-items: flex-start;
+  }
+
+  .md\:twcss-items-end {
+    align-items: flex-end;
+  }
+
   .md\:twcss-border-transparent {
     border-color: transparent;
   }
@@ -1892,8 +1900,20 @@ video {
     padding-right: 1rem;
   }
 
+  .md\:twcss-text-left {
+    text-align: left;
+  }
+
+  .md\:twcss-text-right {
+    text-align: right;
+  }
+
   .md\:twcss-text-start {
     text-align: start;
+  }
+
+  .md\:twcss-text-end {
+    text-align: end;
   }
 
   .md\:twcss-text-\[15px\] {

@@ -34,16 +34,15 @@
     >
       {% if section.settings.ttb_title %}
         <h1
-          class='twcss-typ-h2-subheading-b lg:twcss-typ-h3-subtopic-1-b twcss-mb-7'
-          style='font-size: {{ section.settings.title_size }}px;'
+          class='rich-text__heading rte inline-richtext twcss-mb-7 {{ section.settings.heading_size }}'
         >
           {{ section.settings.ttb_title }}
         </h1>
       {% endif %}
       {% if section.settings.ttb_max_width %}
-        <p class='ttb_description twcss-typ-body-2 twcss-mx-auto twcss-mb-[34px]'>
+        <div class='rich-text__text rte ttb_description twcss-mx-auto twcss-mb-[34px]'>
           {{ section.settings.ttb_description }}
-        </p>
+        </div>
       {% endif %}
       <div class='twcss-flex twcss-gap-x-5 {{ buttons_alignment }}'>
         {% if section.settings.ttb_link1 %}
@@ -78,25 +77,40 @@
       "default": "background-1"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "ttb_title",
       "label": "Title",
       "default": "Lorem ipsum dolor sit amet."
     },
     {
-      "type": "range",
-      "id": "title_size",
-      "min": 10,
-      "max": 50,
-      "step": 5,
-      "default": 40,
-      "label": "Font size"
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h1",
+      "label": "Title size"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "ttb_description",
       "label": "Description",
-      "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae laboriosam natus optio incidunt vel? Quis dolore dignissimos fuga illum, et magni unde quibusdam iure impedit nostrum soluta porro laboriosam natus."
+      "default": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae laboriosam natus optio incidunt vel? Quis dolore dignissimos fuga illum, et magni unde quibusdam iure impedit nostrum soluta porro laboriosam natus.</p>"
     },
     {
       "type": "select",

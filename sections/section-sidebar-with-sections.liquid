@@ -17,7 +17,7 @@
         {%- for block in section.blocks -%}
           <li>
             <a
-              class='twcss-flex twcss-items-center twcss-gap-5 twcss-p-4 hover:twcss-bg-box-background twcss-transition-all twcss-duration-300 item-navigation-{{ forloop.index }}'
+              class='rich-text__heading rte inline-richtext twcss-flex twcss-items-center twcss-gap-5 twcss-p-4 hover:twcss-bg-box-background twcss-transition-all twcss-duration-300 item-navigation-{{ forloop.index }}'
               href='#item_{{ forloop.index }}'
             >
               {% if block.settings.menu_image %}
@@ -41,10 +41,12 @@
           {%- case block.type -%}
             {%- when 'version_1' -%}
               <li id='item_{{ forloop.index }}'>
-                <h4 class='twcss-typ-h5-subtopic-3-a'>
+                <h4 class='rich-text__heading rte inline-richtext'>
                   {{ block.settings.eyebrow }}
                 </h4>
-                <h2 class='twcss-typ-h2-subheading-a'>{{ block.settings.title }}</h2>
+                <h2 class='rich-text__heading rte inline-richtext {{ block.settings.heading_size }}'>
+                  {{ block.settings.title }}
+                </h2>
                 {%- if block.settings.image -%}
                   <img
                     src='{{ block.settings.image | image_url }}'
@@ -55,7 +57,7 @@
                     class='twcss-mb-5 !twcss-h-[420px] twcss-w-full twcss-object-cover'
                   >
                 {%- endif -%}
-                <div class='block_content'>
+                <div class='rich-text__text rte'>
                   {{ block.settings.content }}
                 </div>
                 <hr class='twcss-hidden md:twcss-block twcss-my-[60px] twcss-h-[1px] twcss-bg-[#CCCCCC]'>
@@ -107,14 +109,14 @@
                         >
                       {%- endif -%}
                     </div>
-                    <h3 class='twcss-typ-h3-subtopic-1-a twcss-w-full twcss-mb-3'>
+                    <h2 class='rich-text__heading rte inline-richtext twcss-w-full twcss-mb-3 {{ block.settings.heading_size }}'>
                       {{ block.settings.title_columns }}
-                    </h3>
+                    </h2>
                     <div class='twcss-w-full twcss-flex twcss-gap-5 twcss-flex-col lg:twcss-flex-row'>
-                      <div>
+                      <div class='rich-text__text rte'>
                         {{ block.settings.content_1 }}
                       </div>
-                      <div>
+                      <div class='rich-text__text rte'>
                         {{ block.settings.content_2 }}
                       </div>
                     </div>
@@ -143,14 +145,14 @@
                       >
                     {%- endif -%}
                   </div>
-                  <h3 class='twcss-typ-h3-subtopic-1-a twcss-w-full twcss-mb-3'>
+                  <h2 class='twcss-w-full twcss-mb-3 rich-text__heading rte inline-richtext {{ block.settings.heading_size }}'>
                     {{ block.settings.title_columns }}
-                  </h3>
+                  </h2>
                   <div class='twcss-w-full twcss-flex twcss-gap-5 twcss-flex-col lg:twcss-flex-row'>
-                    <div class='twcss-w-1/2'>
+                    <div class='twcss-w-1/2 rich-text__text rte'>
                       {{ block.settings.content_1 }}
                     </div>
-                    <div class='twcss-w-1/2'>
+                    <div class='twcss-w-1/2 rich-text__text rte'>
                       {{ block.settings.content_2 }}
                     </div>
                   </div>
@@ -192,17 +194,17 @@
                       >
                     {%- endif -%}
 
-                    <h3 class='twcss-typ-h3-subtopic-1-a twcss-w-full twcss-mb-3'>
+                    <h3 class='twcss-w-full twcss-mb-3 rich-text__heading rte inline-richtext {{ block.settings.heading_size }}'>
                       {{ block.settings.title_columns }}
                     </h3>
                     <div class='twcss-flex twcss-flex-col twcss-gap-5'>
                       <div class='twcss-w-full'>
-                        <div>
+                        <div class='rich-text__text rte'>
                           {{ block.settings.content_1 }}
                         </div>
                       </div>
                       <div class='twcss-w-full'>
-                        <div>
+                        <div class='rich-text__text rte'>
                           {{ block.settings.content_2 }}
                         </div>
                       </div>
@@ -221,14 +223,14 @@
                     >
                   {%- endif -%}
 
-                  <h3 class='twcss-typ-h3-subtopic-1-a twcss-w-full twcss-mb-3'>
+                  <h3 class='twcss-w-full twcss-mb-3 rich-text__heading rte inline-richtext {{ block.settings.heading_size }}'>
                     {{ block.settings.title_columns }}
                   </h3>
                   <div class='twcss-w-full twcss-flex twcss-gap-5 twcss-flex-col lg:twcss-flex-row'>
-                    <div class='twcss-w-1/2'>
+                    <div class='twcss-w-1/2 rich-text__text rte'>
                       {{ block.settings.content_1 }}
                     </div>
-                    <div class='twcss-w-1/2'>
+                    <div class='twcss-w-1/2 rich-text__text rte'>
                       {{ block.settings.content_2 }}
                     </div>
                   </div>
@@ -283,7 +285,7 @@
           "content": "Menu"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "menu_title",
           "label": "Menu title",
           "default": "lorem"
@@ -298,16 +300,40 @@
           "content": "Content"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "eyebrow",
           "label": "Eyebrow",
           "default": "Eyebrow"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "title",
           "label": "title",
           "default": "Lorem ipsum dolor sit amet."
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "Title size"
         },
         {
           "type": "image_picker",
@@ -331,11 +357,12 @@
           "content": "Menu"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "menu_title",
           "label": "Menu title",
           "default": "Lorem ipsum dolor sit amet."
         },
+
         {
           "type": "image_picker",
           "id": "menu_image",
@@ -346,10 +373,34 @@
           "content": "Content"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "title_columns",
           "label": "Title columns",
           "default": "Lorem, ipsum dolor."
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "Title size"
         },
         {
           "type": "header",
@@ -392,11 +443,12 @@
           "content": "Menu"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "menu_title",
           "label": "Menu title",
           "default": "Lorem ipsum dolor sit amet."
         },
+
         {
           "type": "image_picker",
           "id": "menu_image",
@@ -412,10 +464,34 @@
           "label": "Image"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "title_columns",
           "label": "Title columns",
           "default": "Lorem, ipsum dolor."
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "Title size"
         },
         {
           "type": "header",

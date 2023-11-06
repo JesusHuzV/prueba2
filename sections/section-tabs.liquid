@@ -7,9 +7,9 @@
       {% for link in section.settings.menu.links %}
         <a
           href='{{ link.url }}'
-          class='twcss-border-b-[2px] {% if link.current %} twcss-border-primary {% else %} twcss-border-transparent {% endif %} twcss-p-[19px] twcss-text-center'
+          class='twcss-border-b-[2px] {% if link.current %} twcss-border-primary  {% else %} twcss-border-transparent {% endif %} twcss-p-[19px] twcss-text-center'
         >
-          <h5 class='twcss-typ-h5-subtopic-3 twcss-text-primary'>
+          <h5 class='rich-text__heading rte inline-richtext {{ section.settings.heading_size }}'>
             {{- link.title -}}
           </h5>
         </a>
@@ -53,6 +53,30 @@
       "type": "link_list",
       "id": "menu",
       "label": "Menu"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h0",
+      "label": "t:sections.all.heading_size.label"
     }
   ],
   "presets": [

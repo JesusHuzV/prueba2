@@ -6,7 +6,7 @@
     <div class='twcss-col-span-full twcss-flex twcss-flex-col twcss-justify-around md:twcss-col-span-2 lg:twcss-col-span-3 empty:twcss-block'>
       {%- for block in section.blocks -%}
         {%- if forloop.index <= 2 -%}
-          <div class='twcss-flex twcss-flex-col twcss-items-end twcss-mb-[65px]'>
+          <div class='twcss-flex twcss-flex-col twcss-items-center md:twcss-items-end twcss-mb-[65px]'>
             {% if block.settings.image %}
               <img
                 class='twcss-w-12'
@@ -17,12 +17,18 @@
                 loading='lazy'
               >
             {% endif %}
-            <h4 class='twcss-typ-h4-subtopic-2 twcss-mb-[10px] twcss-text-primary'>
+            <h4
+              class='rich-text__heading rte twcss-w-full inline-richtext twcss-mb-[10px] twcss-text-center md:twcss-text-end {{ block.settings.heading_size }}'
+              {{ block.shopify_attributes }}
+            >
               {{ block.settings.title }}
             </h4>
-            <p class='twcss-text-tertiary twcss-typ-body-2 twcss-text-end'>
+            <div
+              class='rich-text__text rte twcss-text-center md:twcss-text-end'
+              {{ block.shopify_attributes }}
+            >
               {{ block.settings.descripcion }}
-            </p>
+            </div>
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -45,7 +51,7 @@
     <div class='twcss-col-span-full twcss-flex twcss-flex-col twcss-justify-around md:twcss-col-span-2 lg:twcss-col-span-3 empty:twcss-block'>
       {%- for block in section.blocks -%}
         {%- if forloop.index >= 3 -%}
-          <div class='twcss-flex twcss-flex-col twcss-items-start twcss-mb-[65px]'>
+          <div class='twcss-flex twcss-flex-col twcss-items-center md:twcss-items-start twcss-mb-[65px]'>
             {% if block.settings.image %}
               <img
                 class='twcss-w-12'
@@ -57,12 +63,18 @@
               >
             {% endif %}
 
-            <h4 class='twcss-typ-h4-subtopic-2 twcss-mb-[10px] twcss-text-primary'>
+            <h4
+              class='rich-text__heading rte twcss-w-full inline-richtext twcss-mb-[10px] twcss-text-center md:twcss-text-left {{ block.settings.heading_size }}'
+              {{ block.shopify_attributes }}
+            >
               {{ block.settings.title }}
             </h4>
-            <p class='twcss-text-tertiary twcss-typ-body-2'>
+            <div
+              class='rich-text__text rte twcss-text-center md:twcss-text-left'
+              {{ block.shopify_attributes }}
+            >
               {{ block.settings.descripcion }}
-            </p>
+            </div>
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -115,16 +127,40 @@
       "name": "List",
       "settings": [
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "title",
           "label": "Title",
           "default": "Title text"
         },
         {
-          "type": "textarea",
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "Title size"
+        },
+        {
+          "type": "richtext",
           "id": "descripcion",
           "label": "descripcion",
-          "default": "Descripcion text"
+          "default": "<p>Descripcion text</p>"
         },
         {
           "type": "image_picker",

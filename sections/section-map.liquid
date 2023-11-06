@@ -33,7 +33,7 @@
   <div
     class='twcss-grid-system twcss-gap-y-5 twcss-mb-16 twcss-px-[15px]'
   >
-    <h1 class='twcss-col-span-full twcss-font-bold twcss-uppercase twcss-mb-[25px] {{ section.settings.title_align }}'>
+    <h1 class='twcss-col-span-full twcss-font-bold twcss-uppercase twcss-mb-[25px] {{ section.settings.title_size }} {{ section.settings.title_align }}'>
       {{ section.settings.title }}
     </h1>
     {%- for block in section.blocks -%}
@@ -138,10 +138,30 @@
       "default": 36
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "title",
       "label": "Title",
       "default": "Find a Store"
+    },
+    {
+      "type": "select",
+      "id": "title_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
     },
     {
       "type": "select",
@@ -161,11 +181,12 @@
       "name": "Item",
       "settings": [
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "location_name",
           "label": "Location name",
           "default": "Store Name"
         },
+
         {
           "type": "text",
           "id": "location_address",

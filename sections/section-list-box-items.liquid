@@ -30,7 +30,7 @@
             </h5>
           {%- endif -%}
           {%- if section.settings.title != blank -%}
-            <h2 class='twcss-mx-auto twcss-capitalize'>
+            <h2 class='twcss-mx-auto twcss-capitalize {{ section.settings.title_size }}'>
               {{ section.settings.title }}
             </h2>
           {%- endif -%}
@@ -63,12 +63,12 @@
                     loading='lazy'
                   >
                 {% endif %}
-                <h4 class='twcss-mt-3.5 twcss-typ-body-2 twcss-text-primary twcss-text-center'>
+                <h4 class='twcss-mt-3.5 {{ block.settings.title_size }} twcss-text-primary twcss-text-center'>
                   {{ value.title }}
                 </h4>
-                <span class='twcss-typ-body-2 twcss-text-tertiary twcss-text-center'>
+                <div class='rich-text__text rte twcss-text-tertiary twcss-text-center'>
                   {{- value.description -}}
-                </span>
+                </div>
               </div>
 
             {%- when 'box_section' -%}
@@ -152,22 +152,46 @@
       "default": 36
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "eyebrow",
       "label": "eyebrow",
       "default": "Eyebrow text"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "title",
       "label": "title",
       "default": "Title text"
     },
     {
-      "type": "textarea",
+      "type": "select",
+      "id": "title_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
       "id": "descripcion",
       "label": "descripcion",
-      "default": "Descripcion text"
+      "default": "<p>Descripcion text</p>"
     },
     {
       "type": "range",
@@ -197,10 +221,34 @@
           "default": "Title text"
         },
         {
-          "type": "text",
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
           "id": "description",
           "label": "Description",
-          "default": "lorem"
+          "default": "<p>lorem</p>"
         }
       ]
     },
@@ -218,6 +266,30 @@
           "id": "title",
           "label": "title",
           "default": "Title text"
+        },
+        {
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
         },
         {
           "type": "color",

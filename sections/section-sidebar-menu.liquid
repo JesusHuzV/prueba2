@@ -6,13 +6,15 @@
     class='twcss-grid-system'
   >
     <h1
-      class='twcss-col-span-4 sm:twcss-col-span-8 lg:twcss-col-span-12 twcss-typ-h2-subheading-a twcss-font-bold twcss-mb-[18px]'
+      class='twcss-col-span-4 sm:twcss-col-span-8 lg:twcss-col-span-12 {{ section.settings.title_size }} twcss-font-bold twcss-mb-[18px]'
     >
       {{ section.settings.title }}
     </h1>
     <div class='twcss-col-span-4 sm:twcss-col-span-8 lg:twcss-col-span-12 twcss-grid-system twcss-w-full twcss-mx-0'>
       <ul class='twcss-col-span-4 lg:twcss-col-span-6 [&>li:last-child]:twcss-border-b-0'>
-        <li class='twcss-mb-[44px] lg:twcss-mb-[68px]'>{{ section.settings.service_subtitle }}</li>
+        <li class='twcss-mb-[44px] {{ section.settings.service_subtitle_size }} lg:twcss-mb-[68px]'>
+          {{ section.settings.service_subtitle }}
+        </li>
         {% for block in section.blocks %}
           {% if block.type == 'Service' %}
             <li class='twcss-flex twcss-justify-between sm:twcss-w-10/12 twcss-border-b twcss-border-solid twcss-boder-border twcss-px-[22px] twcss-pb-6'>
@@ -23,7 +25,7 @@
                   </div>
                 {% endif %}
                 <div>
-                  <p class='twcss-typ-h3-subtopic-2 twcss-font-bold'>{{ block.settings.title }}</p>
+                  <p class='{{ block.settings.title_size }} twcss-font-bold'>{{ block.settings.title }}</p>
                   <p class='twcss-typ-body-1'>{{ block.settings.description }}</p>
                 </div>
               </div>
@@ -37,12 +39,14 @@
         {% endfor %}
       </ul>
       <ul class='twcss-col-span-4 lg:twcss-col-span-6'>
-        <li class='twcss-mb-[44px] lg:twcss-mb-[68px]'>{{ section.settings.politics_subtitle }}</li>
+        <li class='twcss-mb-[44px] lg:twcss-mb-[68px] {{ section.settings.politics_subtitle_size }}'>
+          {{ section.settings.politics_subtitle }}
+        </li>
         {% for block in section.blocks %}
           {% if block.type == 'Politics' %}
             <li class='twcss-pb-6'>
               <div class='twcss-col-span-9'>
-                <p class='twcss-typ-h3-subtopic-2 twcss-font-bold'>
+                <p class='{{ block.settings.title_size }} twcss-font-bold'>
                   {{ block.settings.title | link_to: block.settings.link }}
                 </p>
               </div>
@@ -65,20 +69,92 @@
       "default": "background-1"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "title",
       "label": "Title",
       "default": "Get Started"
     },
     {
-      "type": "text",
+      "type": "select",
+      "id": "title_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "inline_richtext",
       "id": "service_subtitle",
       "label": "Service subtitle"
     },
     {
-      "type": "text",
+      "type": "select",
+      "id": "service_subtitle_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "inline_richtext",
       "id": "politics_subtitle",
       "label": "Politics Subtitle"
+    },
+    {
+      "type": "select",
+      "id": "politics_subtitle_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
     },
     {
       "type": "range",
@@ -107,16 +183,40 @@
       "name": "Service",
       "settings": [
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "title",
           "label": "Title",
           "default": "Service title"
         },
         {
-          "type": "text",
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h2",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
           "id": "description",
           "label": "Description",
-          "default": "Service description"
+          "default": "<p>Service description</p>"
         },
         {
           "type": "url",
@@ -135,10 +235,34 @@
       "name": "Politics and guides",
       "settings": [
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "title",
           "label": "Title",
           "default": "Politics title"
+        },
+        {
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h2",
+          "label": "t:sections.all.heading_size.label"
         },
         {
           "type": "url",

@@ -55,12 +55,12 @@
               {{ 'collection-5' | placeholder_svg_tag: 'placeholder-svg' }}
             {% endif %}
           </div>
-          <h4 class='twcss-typ-h4-subtopic-2 twcss-mb-2 twcss-uppercase twcss-text-primary'>
+          <h4 class='{{ block.settings.title_size }} twcss-mb-2 twcss-uppercase twcss-text-primary'>
             {{ block.settings.title }}
           </h4>
-          <p class='twcss-typ-body-2 twcss-text-tertiary twcss-mb-[20px]'>
+          <div class='rich-text__text rte twcss-text-tertiary twcss-mb-[20px]'>
             {{ block.settings.description }}
-          </p>
+          </div>
           {% if block.settings.show_button %}
             <a
               href='{{ block.settings.url_link }}'
@@ -123,16 +123,40 @@
           "label": "Image"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "title",
           "label": "Title",
           "default": "Lorem ipsum dolor sit amet."
         },
         {
-          "type": "textarea",
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h2",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
           "id": "description",
           "label": "Description",
-          "default": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam vitae earum molestiae possimus ipsa saepe dolorem enim aspernatur ut! Unde repellendus iste quasi porro doloribus. Distinctio nesciunt dolorem dicta quis ab. Praesentium eius obcaecati rem, mollitia a dicta eos vitae!"
+          "default": "<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam vitae earum molestiae possimus ipsa saepe dolorem enim aspernatur ut! Unde repellendus iste quasi porro doloribus. Distinctio nesciunt dolorem dicta quis ab. Praesentium eius obcaecati rem, mollitia a dicta eos vitae!</p>"
         },
         {
           "type": "text",

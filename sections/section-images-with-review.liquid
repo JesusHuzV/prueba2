@@ -19,7 +19,7 @@
               {{ 'hero-apparel-1' | placeholder_svg_tag: 'twcss-w-full twcss-h-full' }}
             {% endif %}
             <div class='twcss-mt-[10px] twcss-flex twcss-items-center twcss-gap-2 [&>.icon-caret]:twcss-w-3 [&>.icon-caret]:-twcss-rotate-90'>
-              <h4 class='twcss-typ-h4-subtopic-2 twcss-text-primary'>
+              <h4 class='{{ section.settings.first_title_size }} twcss-text-primary '>
                 {{ section.settings.first_title | link_to: section.settings.first_link }}
               </h4>
               {% render 'icon-caret' %}
@@ -74,7 +74,7 @@
               {% endif %}
 
               <div class='twcss-mt-[10px] twcss-flex twcss-items-center twcss-gap-2 [&>.icon-caret]:twcss-w-3 [&>.icon-caret]:-twcss-rotate-90'>
-                <h4 class='twcss-typ-h4-subtopic-2 twcss-text-primary'>
+                <h4 class='{{ section.settings.second_title_size }} twcss-text-primary'>
                   {{ section.settings.second_title | link_to: section.settings.second_link }}
                 </h4>
                 {% render 'icon-caret' %}
@@ -224,6 +224,30 @@
       "label": "Title"
     },
     {
+      "type": "select",
+      "id": "first_title_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
       "type": "url",
       "id": "first_link",
       "label": "Link",
@@ -238,6 +262,30 @@
       "type": "text",
       "id": "second_title",
       "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "second_title_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h2",
+      "label": "t:sections.all.heading_size.label"
     },
     {
       "type": "url",
@@ -265,10 +313,10 @@
           "default": "#fff"
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "id": "comment",
           "label": "Comment",
-          "default": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim corrupti amet molestias maiores sed, esse dolores exercitationem architecto sequi assumenda."
+          "default": "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim corrupti amet molestias maiores sed, esse dolores exercitationem architecto sequi assumenda.</p>"
         },
         {
           "type": "text",
@@ -313,10 +361,10 @@
           "default": "Lorem ipsum dolor sit amet."
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "id": "comment",
           "label": "comment",
-          "default": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim corrupti amet molestias maiores sed, esse dolores exercitationem architecto sequi assumenda."
+          "default": "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim corrupti amet molestias maiores sed, esse dolores exercitationem architecto sequi assumenda.</p>"
         }
       ]
     }

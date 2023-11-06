@@ -31,14 +31,14 @@
         style='background: linear-gradient(transparent, {{ section.settings.gradient_color }});'
       ></div>
       <div class='twcss-top-0 twcss-flex twcss-h-full twcss-w-full twcss-flex-col twcss-justify-between twcss-px-[39px] twcss-py-[50px] twcss-text-center md:twcss-px-[47px] md:twcss-py-[65px] lg:twcss-px-[75px] lg:twcss-py-[110px] twcss-z-[1] twcss-relative'>
-        <h2 class='twcss-typ-h2-subheading-a twcss-uppercase twcss-text-background'>
+        <h2 class='{{ block.settings.title_size }} twcss-uppercase twcss-text-background'>
           {{ block.settings.title }}
         </h2>
 
         <div>
-          <p class='twcss-typ-body-2 twcss-mb-6 twcss-text-background'>
+          <div class='rich-text__text rte  twcss-mb-6 !twcss-text-background [&>*]:!twcss-text-background'>
             {{ block.settings.description }}
-          </p>
+          </div>
           <a
             href='{{ block.settings.url_button }}'
             class='button twcss-hidden twcss-border-none lg:twcss-block {{ button_style_type }}'
@@ -107,10 +107,34 @@
           "default": "LOREM IPSUM"
         },
         {
-          "type": "text",
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h2",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
           "id": "description",
           "label": "Description",
-          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget sollicitudin odio. Pellentesque ullamcorper, libero vehicula lacinia luctus, magna justo pharetra mi, non iaculis odio orci eget nisl."
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget sollicitudin odio. Pellentesque ullamcorper, libero vehicula lacinia luctus, magna justo pharetra mi, non iaculis odio orci eget nisl.</p>"
         },
         {
           "type": "text",

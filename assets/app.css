@@ -644,6 +644,10 @@ video {
   position: absolute;
 }
 
+.\!twcss-absolute {
+  position: absolute !important;
+}
+
 .twcss-relative {
   position: relative;
 }
@@ -678,6 +682,18 @@ video {
 
 .twcss-top-5 {
   top: 1.25rem;
+}
+
+.twcss-bottom-0 {
+  bottom: 0px;
+}
+
+.twcss-left-0 {
+  left: 0px;
+}
+
+.twcss-right-0 {
+  right: 0px;
 }
 
 .twcss-z-0 {

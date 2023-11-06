@@ -34,7 +34,7 @@
   <div
     class='twcss-grid-system'
   >
-    <h2 class='twcss-col-span-full twcss-mb-[20px] twcss-text-brand-primary twcss-text-center twcss-typ-h2-subheading-a twcss-uppercase lg:twcss-mb-[74px]'>
+    <h2 class='twcss-col-span-full twcss-mb-[20px] twcss-text-brand-primary twcss-text-center {{ section.settings.title_size }} twcss-uppercase lg:twcss-mb-[74px]'>
       {{ section.settings.title }}
     </h2>
     <div class='twcss-custom-scrollbar twcss-col-span-full twcss-flex twcss-items-start twcss-gap-4 twcss-overflow-x-scroll twcss-bg-scroll twcss-pt-[22px] twcss-pb-6 twcss-px-4 container-scroll'>
@@ -73,12 +73,12 @@
               </div>
             {%- endif -%}
           </div>
-          <h5 class='twcss-mb-1 twcss-uppercase twcss-text-primary twcss-typ-h5-subtopic-3-a lg:twcss-mb-2'>
+          <h5 class='twcss-mb-1 twcss-uppercase twcss-text-primary {{ block.settings.title_size }} lg:twcss-mb-2'>
             {{ block.settings.title }}
           </h5>
-          <p class='twcss-mb-[20px] twcss-typ-body-2 twcss-text-tertiary'>
+          <div class='twcss-mb-[20px] rich-text__text rte twcss-text-tertiary'>
             {{ block.settings.description }}
-          </p>
+          </div>
           <a
             href='{{ block.settings.url }}'
             class='button  twcss-mt-2 !twcss-hidden lg:group-hover:!twcss-flex {{ button_style_type }}'
@@ -109,10 +109,34 @@
       "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "title",
       "label": "title",
       "default": "Caracteristicas"
+    },
+    {
+      "type": "select",
+      "id": "title_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
     },
     {
       "type": "range",
@@ -146,16 +170,40 @@
           "label": "Image"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "title",
           "label": "title",
           "default": "Title text"
         },
         {
-          "type": "text",
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h2",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
           "id": "description",
           "label": "Description",
-          "default": "lorem"
+          "default": "<p>lorem</p>"
         },
         {
           "type": "url",
@@ -184,7 +232,7 @@
           "label": "Logo"
         },
         {
-          "type": "text",
+          "type": "inline_richtext",
           "id": "text_image",
           "label": "Text image"
         }

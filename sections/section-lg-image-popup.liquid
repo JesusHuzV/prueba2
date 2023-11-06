@@ -43,15 +43,16 @@
     </div>
     <div class='twcss-col-span-full {% if section.settings.toggle_image %}md:twcss-col-start-5 lg:twcss-col-start-8{% else %}lg:twcss-col-start-1{% endif %} md:twcss-col-span-4 lg:twcss-col-span-5 twcss-items-center twcss-flex twcss-flex-col twcss-justify-center twcss-p-10 lg:twcss-p-0'>
       <h2
-        class='twcss-w-full twcss-typ-h2-subheading-b twcss-mb-[18px] {{ title_case }} {{ title_align }}'
+        class='twcss-w-full twcss-typ-h2-subheading-b twcss-mb-[18px] {{ title_case }} {{ title_align }} {{ section.settings.heading_size }}'
       >
         {{ section.settings.title }}
       </h2>
-      <p
-        class='twcss-typ-body-2 twcss-w-full twcss-mb-[40px] {{ description_align }}'
+
+      <div
+        class='rich-text__text rte {{ description_align }} twcss-w-full twcss-mb-[40px]'
       >
         {{ section.settings.description }}
-      </p>
+      </div>
 
       <div
         class='twcss-flex twcss-w-full twcss-flex-col twcss-justify-between twcss-divide-y twcss-px-3'
@@ -76,12 +77,12 @@
                   </div>
                 {% endif %}
                 <div class='twcss-ml-[15px]'>
-                  <h2 class='twcss-typ-body-2 twcss-text-primary'>
+                  <h2 class='{{ block.settings.heading_size }} twcss-text-primary'>
                     {{ block.settings.title }}
                   </h2>
-                  <p class='twcss-typ-body-2 twcss-text-tertiary'>
+                  <div class='rich-text__text rte  twcss-text-tertiary'>
                     {{ block.settings.description }}
-                  </p>
+                  </div>
                 </div>
               </div>
               {% if block.settings.link %}
@@ -128,12 +129,12 @@
           </label>
           {% for block in section.blocks %}
             {% if block.type == 'popup' %}
-              <h1 class='twcss-text-left twcss-typ-h2-subheading-b twcss-mb-10'>
+              <h1 class='twcss-text-left twcss-typ-h2-subheading-b twcss-mb-10 {{ block.settings.heading_size }}'>
                 {{ block.settings.title }}
               </h1>
-              <p class='twcss-text-left'>
+              <div class='twcss-text-left rich-text__text rte '>
                 {{ block.settings.description }}
-              </p>
+              </div>
             {% endif %}
           {% endfor %}
         </div>
@@ -230,16 +231,40 @@
       "default": false
     },
     {
-      "type": "text",
+      "type": "inline_richtext",
       "id": "title",
       "label": "Title",
-      "default": "TUMI at your Service"
+      "default": "Lorem ipsum"
     },
     {
-      "type": "textarea",
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "World class quality meets world class customer service."
+      "default": "<p>World class quality meets world class customer service.</p>"
     },
     {
       "type": "range",
@@ -302,7 +327,31 @@
           "label": "Title"
         },
         {
-          "type": "text",
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
           "id": "description",
           "label": "Description"
         },
@@ -323,6 +372,30 @@
           "id": "title",
           "label": "Title",
           "default": "Popup Title"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h1",
+          "label": "t:sections.all.heading_size.label"
         },
         {
           "type": "richtext",

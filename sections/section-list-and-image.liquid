@@ -24,7 +24,7 @@
     class='twcss-flex twcss-w-full twcss-flex-col twcss-justify-center md:twcss-w-1/2 twcss-items-center'
   >
     <div class='twcss-max-w-[700px] twcss-w-full twcss-p-10'>
-      <h2 class='twcss-mb-3 twcss-typ-h2-subheading-a lg:twcss-mb-5'>
+      <h2 class='twcss-mb-3 {{ section.settings.title_size }} lg:twcss-mb-5'>
         {{ section.settings.title }}
       </h2>
       <ul>
@@ -43,12 +43,12 @@
                 {%- endif -%}
               </picture>
               <div>
-                <h3 class='twcss-mb-2 twcss-typ-h4-subtopic-2'>
+                <h3 class='twcss-mb-2 {{ block.settings.title_size }}'>
                   {{ block.settings.title }}
                 </h3>
-                <p class='twcss-mb-6 twcss-typ-body-2'>
+                <div class='twcss-mb-6 rich-text__text rte '>
                   {{ block.settings.descripcion }}
-                </p>
+                </div>
               </div>
             </div>
           </li>
@@ -131,6 +131,30 @@
       "default": "Title text"
     },
     {
+      "type": "select",
+      "id": "title_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
       "type": "checkbox",
       "id": "reverse_content",
       "default": false,
@@ -199,10 +223,34 @@
           "default": "Title text"
         },
         {
-          "type": "textarea",
+          "type": "select",
+          "id": "title_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "t:sections.all.heading_size.options__1.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:sections.all.heading_size.options__2.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:sections.all.heading_size.options__3.label"
+            },
+            {
+              "value": "hxl",
+              "label": "t:sections.all.heading_size.options__4.label"
+            }
+          ],
+          "default": "h2",
+          "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "richtext",
           "id": "descripcion",
           "label": "descripcion",
-          "default": "Descripcion text"
+          "default": "<p>Descripcion text</p>"
         },
         {
           "type": "image_picker",

@@ -11,11 +11,11 @@
       style='--padding-top: {{ section.settings.padding_top | round: 0 }}px; --padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;'
     >
       <div class='twcss-grid twcss-grid-cols-12 twcss-gap-4 twcss-items-center'>
-        <div class='twcss-mx-3 twcss-col-span-12 lg:twcss-col-span-5'>
+        <div class='twcss-mx-5 twcss-col-span-12 lg:twcss-col-span-5'>
           <div class='twcss-flex twcss-flex-col twcss-gap-4 lg:twcss-gap-4'>
             {%- if section.settings.subtitle != blank -%}
               <h2
-                class='twcss-w-full twcss-text-2xl twcss-font-medium twcss-tracking-tight twcss-text-amber-500'
+                class='twcss-font-bold twcss-w-full twcss-text-4xl twcss-font-medium twcss-tracking-tight twcss-text-amber-500'
               >
                 {{ section.settings.subtitle }}
               </h2>
@@ -23,15 +23,15 @@
 
             {%- if section.settings.title != blank -%}
               <h2
-                class='twcss-text-4xl twcss-text-secondary-grey-1 md:twcss-text-6xl/[72px]'
-                style='line-height: 50px;'
+                class='twcss-font-bold twcss-text-6xl twcss-text-secondary-grey-1 '
+                style='line-height: 40px;'
               >
                 {{ section.settings.title }}
               </h2>
             {%- endif -%}
 
             {%- if section.settings.description != blank -%}
-              <p class='twcss-text-base twcss-text-secondary-grey-2 md:twcss-text-lg'>
+              <p class='twcss-text-secondary-grey-2 twcss-text-2xl'>
                 {{ section.settings.description }}
               </p>
             {%- endif -%}
@@ -41,9 +41,9 @@
         <div class='twcss-col-span-12 lg:twcss-col-span-7'>
           <div class='twcss-columns-1 twcss-gap-y-16 lg:twcss-columns-2 lg:twcss-gap-y-20 lg:twcss-gap-x-4'>
             {%- for block in section.blocks -%}
-              <div class='twcss-pt-16 first:twcss-hidden last:twcss-hidden lg:first:twcss-block lg:last:twcss-block lg:first:twcss-pt-0 lg:twcss-pt-20 lg:twcss-pr-10'>
+              <div class='custon123 twcss-pt-14 {% if section.blocks.size == 3 or section.blocks.size == 4 %} first:twcss-hidden last:twcss-hidden {% endif %} lg:first:twcss-block lg:last:twcss-block lg:first:twcss-pt-0 lg:twcss-pt-20 lg:twcss-pr-10'>
                 <div
-                  class='twcss-bg-white twcss-p-5 twcss-mx-4 twcss-mb-5 twcss-rounded-2xl lg:twcss-p-8 '
+                  class='twcss-bg-white twcss-p-5 twcss-mx-1 twcss-mb-5 twcss-rounded-2xl lg:twcss-p-8 '
                   style='background-color: {{ section.settings.background_color_card }};'
                 >
                   {%- if block.settings.image != blank -%}
@@ -58,14 +58,14 @@
                   {%- endif -%}
 
                   {%- if block.settings.name != blank -%}
-                    <p class='twcss-text-lg/6 twcss-text-secondary-grey-1 twcss-font-medium lg:twcss-text-xl'>
+                    <p class='twcss-font-bold twcss-w-full twcss-text-4xl twcss-font-medium twcss-tracking-tight'>
                       {{ block.settings.name }}
                     </p>
                   {%- endif -%}
 
                   {%- if block.settings.content != blank -%}
-                    <p class='twcss-text-base twcss-text-secondary-grey-1 twcss-font-medium twcss-mt-5 lg:twcss-text-lg lg:twcss-mt-6'>
-                      {{ block.settings.content }}
+                    <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-1xl twcss-mt-5 lg:twcss-mt-6 '>
+                      {{ block.settings.content | truncate: 255 }}
                     </p>
                   {%- endif -%}
                 </div>
@@ -74,12 +74,16 @@
           </div>
 
           <div class='lg:twcss-hidden twcss-flex twcss-mx-3 twcss-gap-2 twcss-justify-center twcss-px-16 twcss-py-3 twcss-mt-6 twcss-font-semibold twcss-rounded-md twcss-border-2 twcss-border-solid twcss-border-neutral-100 twcss-leading-[124%]'>
-            <a
-              href='{{ section.settings.link_url }}'
-              class='twcss-no-underline twcss-text-brand-cta-blue twcss-underline twcss-text-xl twcss-font-medium'
-            >
-              {{ section.settings.link_text }}
-            </a>
+            {% if section.blocks.size > 2 %}
+              <a
+                href='{{ section.settings.link_url }}'
+                class='twcss-no-underline twcss-text-brand-cta-blue twcss-text-x2 twcss-font-medium'
+                id='showMoreButton'
+                onclick='return false;'
+              >
+                {{ section.settings.link_text }}
+              </a>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -90,6 +94,7 @@
 {% schema %}
 {
   "name": "Testimonials",
+  "max_blocks": 4,
   "settings": [
     {
       "type": "color_scheme",

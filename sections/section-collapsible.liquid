@@ -1,0 +1,121 @@
+<section
+  class='color-{{ section.settings.color_scheme }} twcss-bg-brand-light-blue'
+  style='background-image: url("{{ section.settings.bg_image | image_url }}");'
+>
+  <div
+    class='lg:twcss-px-100 md:twcss-px-50'
+    style='max-width:1200px; margin-left: auto; margin-right: auto;'
+  >
+    <div
+      class='twcss-px-6 twcss-py-10 lg:twcss-container lg:twcss-max-w-screen-xlg lg:twcss-pt-[--padding-top] lg:twcss-pb-[--padding-bottom]'
+      style='--padding-top: {{ section.settings.padding_top | round: 0 }}px; --padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;'
+    >
+      <div class='twcss-grid twcss-grid-cols-12 twcss-gap-4 twcss-items-center'>
+        <div class='twcss-mx-5 twcss-col-span-12 lg:twcss-col-span-6'>
+          <div class='twcss-flex twcss-flex-col twcss-gap-4 lg:twcss-gap-4'>
+            {%- if section.settings.title != blank -%}
+              <h2
+                class='twcss-font-bold twcss-text-6xl twcss-text-secondary-grey-1 '
+                style='line-height: 40px;'
+              >
+                {{ section.settings.title }}
+              </h2>
+            {%- endif -%}
+          </div>
+          <div class='twcss-columns-1 twcss-gap-y-16 lg:twcss-gap-y-20 lg:twcss-gap-x-4'>
+            {%- for block in section.blocks -%}
+              <div class='custon123 twcss-pt-14 {% if section.blocks.size == 3 or section.blocks.size == 4 %} first:twcss-hidden last:twcss-hidden {% endif %} lg:first:twcss-block lg:last:twcss-block lg:first:twcss-pt-0'>
+                <div
+                  class='twcss-bg-white twcss-mx-1 twcss-rounded-2xl'
+                  style='background-color: {{ section.settings.background_color_card }};'
+                >
+                  {%- if block.settings.name != blank -%}
+                    <p class='twcss-font-bold twcss-w-full twcss-text-4xl twcss-font-medium twcss-tracking-tight'>
+                      {{ block.settings.name }}
+                    </p>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <div class='twcss-col-span-12 lg:twcss-col-span-6'></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQs",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "default"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color_card",
+      "label": "Background Color Card",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "What our customers say"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "FAQs",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs"
+    }
+  ]
+}
+{% endschema %}

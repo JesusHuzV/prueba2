@@ -10,37 +10,162 @@
       class='twcss-px-6 twcss-py-10 lg:twcss-container lg:twcss-max-w-screen-xlg lg:twcss-pt-[--padding-top] lg:twcss-pb-[--padding-bottom]'
       style='--padding-top: {{ section.settings.padding_top | round: 0 }}px; --padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;'
     >
-      <div class='twcss-grid twcss-grid-cols-12 twcss-gap-4 twcss-items-center'>
-        <div class='twcss-mx-5 twcss-col-span-12 lg:twcss-col-span-6'>
-          <div class='twcss-flex twcss-flex-col twcss-gap-4 lg:twcss-gap-4'>
-            {%- if section.settings.title != blank -%}
-              <h2
-                class='twcss-font-bold twcss-text-6xl twcss-text-secondary-grey-1 '
-                style='line-height: 40px;'
-              >
-                {{ section.settings.title }}
-              </h2>
-            {%- endif -%}
-          </div>
-          <div class='twcss-columns-1 twcss-gap-y-16 lg:twcss-gap-y-20 lg:twcss-gap-x-4'>
-            {%- for block in section.blocks -%}
-              <div class='custon123 twcss-pt-14 {% if section.blocks.size == 3 or section.blocks.size == 4 %} first:twcss-hidden last:twcss-hidden {% endif %} lg:first:twcss-block lg:last:twcss-block lg:first:twcss-pt-0'>
-                <div
-                  class='twcss-bg-white twcss-mx-1 twcss-rounded-2xl'
-                  style='background-color: {{ section.settings.background_color_card }};'
+      <div class='twcss-grid twcss-grid-cols-12 twcss-gap-4'>
+        <div class='twcss-col-span-12 lg:twcss-col-span-3'>
+          {%- if section.settings.title != blank -%}
+            <h2
+              class='twcss-font-bold twcss-text-6xl twcss-text-secondary-grey-1 '
+              style='line-height: 40px;'
+            >
+              {{ section.settings.title }}
+            </h2>
+          {%- endif -%}
+
+          {%- for block in section.blocks -%}
+            <div class='twcss-grid twcss-grid-cols-1 twcss-justify-start twcss-gap-y-3.5 twcss-mt-6 lg:twcss-gap-y-6 lg:twcss-mt-[72px]'>
+              {%- if block.settings.name != blank -%}
+                <button
+                  class='twcss-font-medium twcss-text-left aria-selected:twcss-text-brand-cta-blue lg:twcss-text-lg boton-pregunta'
+                  role='tab'
+                  id='tab-1-trigger'
+                  aria-selected='false'
+                  aria-controls='tab-1-content'
+                  data-id='{{ block.id }}'
+                  data-opened='{{ forloop.first }}'
                 >
-                  {%- if block.settings.name != blank -%}
-                    <p class='twcss-font-bold twcss-w-full twcss-text-4xl twcss-font-medium twcss-tracking-tight'>
-                      {{ block.settings.name }}
-                    </p>
-                  {%- endif -%}
-                </div>
-              </div>
-            {%- endfor -%}
-          </div>
+                  {{ block.settings.name }}
+                </button>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
         </div>
 
-        <div class='twcss-col-span-12 lg:twcss-col-span-6'></div>
+        <div class='twcss-col-span-12 lg:twcss-col-span-9'>
+          {%- for block in section.blocks -%}
+            <div
+              class='preguntas-tema'
+              style='display:none;'
+              data-tema='{{ block.id }}'
+              id='{{ block.id }}'
+            >
+              <div
+                id='{{ block.id }}-1'
+                role='tabpanel'
+                tabindex='-1'
+                aria-hidden='false'
+                aria-labelledby='tab-1-trigger'
+                class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden'
+              >
+                <details class='twcss-group/details twcss-bg-brand-grey twcss-p-5 twcss-rounded-2xl lg:twcss-p-10 lg:twcss-rounded-3xl'>
+                  <summary
+                    id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
+                    class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
+                  >
+                    {%- if block.settings.titleuno != blank -%}
+                      <h4 class='twcss-text-[22px]/7 twcss-flex-1 twcss-line-clamp-1 [&amp;>span]:twcss-text-brand-cta-blue lg:twcss-text-2xl'>
+                        {{ block.settings.titleuno }}
+                      </h4>
+                    {%- endif -%}
+
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      aria-hidden='true'
+                      focusable='false'
+                      class='icon icon-plus twcss-w-6 twcss-h-6 group-open/details:twcss-hidden'
+                      fill='none'
+                      viewBox='0 0 10 10'
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor">
+                      </path>
+                    </svg>
+
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      aria-hidden='true'
+                      focusable='false'
+                      class='icon icon-minus twcss-w-6 twcss-h-6 twcss-hidden group-open/details:twcss-block'
+                      fill='none'
+                      viewBox='0 0 10 2'
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor">
+                      </path>
+                    </svg>
+                  </summary>
+
+                  <div
+                    id='CollapsibleAccordion-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
+                    role='region'
+                    aria-labelledby='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
+                    class='respuesta twcss-mt-5 twcss-text-secondary-grey-2 twcss-text-lg [&amp;_a]:twcss-text-brand-cta-blue [&amp;_a]:twcss-underline lg:twcss-mt-6'
+                    data-tema='{{ block.id }}'
+                  >
+                    {%- if block.settings.contentuno != blank -%}
+                      <p>{{ block.settings.contentuno }}</p>
+                    {%- endif -%}
+                  </div>
+                </details>
+              </div>
+              <div
+                id='{{ block.id }}-2'
+                role='tabpanel'
+                tabindex='-1'
+                aria-hidden='false'
+                aria-labelledby='tab-2-trigger'
+                class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
+                data-tema='{{ block.id }}'
+              >
+                <details class='twcss-group/details twcss-bg-brand-grey twcss-p-5 twcss-rounded-2xl lg:twcss-p-10 lg:twcss-rounded-3xl'>
+                  <summary
+                    id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
+                    class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
+                  >
+                    {%- if block.settings.titledos != blank -%}
+                      <h4 class='twcss-text-[22px]/7 twcss-flex-1 twcss-line-clamp-1 [&amp;>span]:twcss-text-brand-cta-blue lg:twcss-text-2xl'>
+                        {{ block.settings.titledos }}
+                      </h4>
+                    {%- endif -%}
+
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      aria-hidden='true'
+                      focusable='false'
+                      class='icon icon-plus twcss-w-6 twcss-h-6 group-open/details:twcss-hidden'
+                      fill='none'
+                      viewBox='0 0 10 10'
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor">
+                      </path>
+                    </svg>
+
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      aria-hidden='true'
+                      focusable='false'
+                      class='icon icon-minus twcss-w-6 twcss-h-6 twcss-hidden group-open/details:twcss-block'
+                      fill='none'
+                      viewBox='0 0 10 2'
+                    >
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor">
+                      </path>
+                    </svg>
+                  </summary>
+
+                  <div
+                    id='CollapsibleAccordion-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
+                    role='region'
+                    aria-labelledby='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
+                    class='respuesta twcss-mt-5 twcss-text-secondary-grey-2 twcss-text-lg [&amp;_a]:twcss-text-brand-cta-blue [&amp;_a]:twcss-underline lg:twcss-mt-6'
+                    data-tema='{{ block.id }}'
+                  >
+                    {%- if block.settings.contentdos != blank -%}
+                      <p>{{ block.settings.contentdos }}</p>
+                    {%- endif -%}
+                  </div>
+                </details>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
       </div>
     </div>
   </div>
@@ -108,6 +233,46 @@
           "type": "text",
           "id": "name",
           "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "titleuno",
+          "label": "Title 1"
+        },
+        {
+          "type": "richtext",
+          "id": "contentuno",
+          "label": "Description 1"
+        },
+        {
+          "type": "text",
+          "id": "titledos",
+          "label": "Title 2"
+        },
+        {
+          "type": "richtext",
+          "id": "contentdos",
+          "label": "Description 2"
+        },
+        {
+          "type": "text",
+          "id": "titletres",
+          "label": "Title 3"
+        },
+        {
+          "type": "richtext",
+          "id": "contenttres",
+          "label": "Description 3"
+        },
+        {
+          "type": "text",
+          "id": "titlecuatro",
+          "label": "Title 4"
+        },
+        {
+          "type": "richtext",
+          "id": "contentcuatro",
+          "label": "Description 4"
         }
       ]
     }

@@ -50,10 +50,9 @@
       ],
       "settings": {
         "color_scheme": "inverse",
-        "bg_image": "shopify:\/\/shop_images\/acc48a8a03e4ce4b5bcbf18f23ea711f.jpg",
         "background_color_card": "#1773b0",
         "subtitle": "What our customers say",
-        "title": "What our customers say",
+        "title": "Test 1What our customers say",
         "description": "Lorem ipsum dolor sit amet dolor consectetur adipiscing elitipsum sit",
         "link_text": "See more reviews",
         "link_url": "\/",

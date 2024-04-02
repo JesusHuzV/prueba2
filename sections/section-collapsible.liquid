@@ -7,25 +7,27 @@
     style='max-width:1200px; margin-left: auto; margin-right: auto;'
   >
     <div
-      class='twcss-px-6 twcss-py-10 lg:twcss-container lg:twcss-max-w-screen-xlg lg:twcss-pt-[--padding-top] lg:twcss-pb-[--padding-bottom]'
+      class='twcss-px-8 twcss-py-10 lg:twcss-container lg:twcss-max-w-screen-xlg lg:twcss-pt-[--padding-top] lg:twcss-pb-[--padding-bottom]'
       style='--padding-top: {{ section.settings.padding_top | round: 0 }}px; --padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;'
     >
       <div class='twcss-grid twcss-grid-cols-12 twcss-gap-4'>
-        <div class='twcss-col-span-12 lg:twcss-col-span-3'>
+        <div class='twcss-col-span-12 lg:twcss-col-span-12'>
           {%- if section.settings.title != blank -%}
             <h2
-              class='twcss-font-bold twcss-text-6xl twcss-text-secondary-grey-1 '
+              class='twcss-font-bold lg:twcss-text-6xl twcss-text-5xl twcss-text-secondary-grey-1'
               style='line-height: 40px;'
             >
               {{ section.settings.title }}
             </h2>
           {%- endif -%}
-
+        </div>
+        <div class='twcss-col-span-12 lg:twcss-col-span-4 lg:twcss-mt-[15px]'>
           {%- for block in section.blocks -%}
-            <div class='twcss-grid twcss-grid-cols-1 twcss-justify-start twcss-gap-y-3.5 twcss-mt-6 lg:twcss-gap-y-6 lg:twcss-mt-[72px]'>
+            <div class='twcss-font-bold twcss-grid twcss-grid-cols-1 twcss-justify-start'>
+              <!-- twcss-font-bold twcss-w-full twcss-text-4xl twcss-font-medium twcss-tracking-tight -->
               {%- if block.settings.name != blank -%}
                 <button
-                  class='twcss-font-medium twcss-text-left aria-selected:twcss-text-brand-cta-blue lg:twcss-text-lg boton-pregunta'
+                  class='twcss-font-medium twcss-text-left lg:twcss-text-4xl twcss-text-3xl boton-pregunta twcss-py-8'
                   role='tab'
                   id='tab-1-trigger'
                   aria-selected='false'
@@ -36,11 +38,14 @@
                   {{ block.settings.name }}
                 </button>
               {%- endif -%}
+              {% if forloop.last == false %}
+                <hr class='lg:twcss-hidden twcss-border-0 twcss-h-px twcss-bg-white twcss-m-0'>
+              {% endif %}
             </div>
           {%- endfor -%}
         </div>
 
-        <div class='twcss-col-span-12 lg:twcss-col-span-9'>
+        <div class='twcss-col-span-12 lg:twcss-col-span-8 lg:twcss-mt-[25px]'>
           {%- for block in section.blocks -%}
             <div
               class='preguntas-tema'
@@ -48,6 +53,7 @@
               data-tema='{{ block.id }}'
               id='{{ block.id }}'
             >
+              <!-- block -->
               <div
                 id='{{ block.id }}-1'
                 role='tabpanel'
@@ -55,56 +61,59 @@
                 aria-hidden='false'
                 aria-labelledby='tab-1-trigger'
                 class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden'
+                data-tema='{{ block.id }}'
               >
-                <details class='twcss-group/details twcss-bg-brand-grey twcss-p-5 twcss-rounded-2xl lg:twcss-p-10 lg:twcss-rounded-3xl'>
+                <details
+                  class='twcss-group/details twcss-bg-grey twcss-p-8 lg:twcss-p-10 twcss-mb-5 twcss-mx-0 lg:twcss-mx-0 '
+
+                  style='background-color: {{ section.settings.background_color_card }};'
+                >
                   <summary
                     id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
                     class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
                   >
                     {%- if block.settings.titleuno != blank -%}
-                      <h4 class='twcss-text-[22px]/7 twcss-flex-1 twcss-line-clamp-1 [&amp;>span]:twcss-text-brand-cta-blue lg:twcss-text-2xl'>
+                      <p class='twcss-font-medium lg:twcss-text-4xl twcss-text-3xl twcss-grid twcss-grid-cols-1 twcss-justify-start lg:twcss-mt-[5px] lg:twcss-mb-[5px]'>
+                        <!--
+                          ttwcss-text-[22px]/7 twcss-flex-1 twcss-line-clamp-1 [&amp;>span]:twcss-text-brand-cta-blue lg:twcss-text-2xl lg:twcss-mt-[25px]
+                        -->
                         {{ block.settings.titleuno }}
-                      </h4>
+                      </p>
                     {%- endif -%}
-
+                    <!-- Chevrón hacia arriba -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
-                      aria-hidden='true'
-                      focusable='false'
-                      class='icon icon-plus twcss-w-6 twcss-h-6 group-open/details:twcss-hidden'
-                      fill='none'
-                      viewBox='0 0 10 10'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'
+                      class='icon icon-chevron-up twcss-w-10 twcss-h-10 group-open/details:twcss-hidden'
                     >
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor">
-                      </path>
+                      <path fill-rule="evenodd" d="M10 6.707l4.146 4.147a.5.5 0 00.708-.708l-4.5-4.5a.5.5 0 00-.708 0l-4.5 4.5a.5.5 0 10.708.708L10 6.707z" clip-rule="evenodd"/>
                     </svg>
 
+                    <!-- Chevrón hacia abajo -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
-                      aria-hidden='true'
-                      focusable='false'
-                      class='icon icon-minus twcss-w-6 twcss-h-6 twcss-hidden group-open/details:twcss-block'
-                      fill='none'
-                      viewBox='0 0 10 2'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'
+                      class='icon icon-chevron-down twcss-w-10 twcss-h-10 twcss-hidden group-open/details:twcss-block'
                     >
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor">
-                      </path>
+                      <path fill-rule="evenodd" d="M10 13.293l-4.146-4.147a.5.5 0 00-.708.708l4.5 4.5a.5.5 0 00.708 0l4.5-4.5a.5.5 0 10-.708-.708L10 13.293z" clip-rule="evenodd"/>
                     </svg>
                   </summary>
 
                   <div
-                    id='CollapsibleAccordion-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
-                    role='region'
-                    aria-labelledby='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
-                    class='respuesta twcss-mt-5 twcss-text-secondary-grey-2 twcss-text-lg [&amp;_a]:twcss-text-brand-cta-blue [&amp;_a]:twcss-underline lg:twcss-mt-6'
+                    class='respuesta lg:twcss-mt-8 twcss-mt-6'
                     data-tema='{{ block.id }}'
                   >
                     {%- if block.settings.contentuno != blank -%}
-                      <p>{{ block.settings.contentuno }}</p>
+                      <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-x3 twcss-text-1xl'>
+                        {{ block.settings.contentuno }}
+                      </p>
                     {%- endif -%}
                   </div>
                 </details>
               </div>
+              <!-- block -->
               <div
                 id='{{ block.id }}-2'
                 role='tabpanel'
@@ -114,51 +123,106 @@
                 class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
                 data-tema='{{ block.id }}'
               >
-                <details class='twcss-group/details twcss-bg-brand-grey twcss-p-5 twcss-rounded-2xl lg:twcss-p-10 lg:twcss-rounded-3xl'>
+                <details
+                  class='twcss-group/details twcss-bg-grey twcss-p-8 lg:twcss-p-10 twcss-mb-5 twcss-mx-0 lg:twcss-mx-0 '
+                  style='background-color: {{ section.settings.background_color_card }};'
+                >
                   <summary
                     id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
                     class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
                   >
                     {%- if block.settings.titledos != blank -%}
-                      <h4 class='twcss-text-[22px]/7 twcss-flex-1 twcss-line-clamp-1 [&amp;>span]:twcss-text-brand-cta-blue lg:twcss-text-2xl'>
+                      <p class='twcss-font-medium lg:twcss-text-4xl twcss-text-3xl twcss-grid twcss-grid-cols-1 twcss-justify-start lg:twcss-mt-[5px] lg:twcss-mb-[5px]'>
                         {{ block.settings.titledos }}
-                      </h4>
+                      </p>
                     {%- endif -%}
 
+                    <!-- Chevrón hacia arriba -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
-                      aria-hidden='true'
-                      focusable='false'
-                      class='icon icon-plus twcss-w-6 twcss-h-6 group-open/details:twcss-hidden'
-                      fill='none'
-                      viewBox='0 0 10 10'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'
+                      class='icon icon-chevron-up twcss-w-10 twcss-h-10 group-open/details:twcss-hidden'
                     >
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor">
-                      </path>
+                      <path fill-rule="evenodd" d="M10 6.707l4.146 4.147a.5.5 0 00.708-.708l-4.5-4.5a.5.5 0 00-.708 0l-4.5 4.5a.5.5 0 10.708.708L10 6.707z" clip-rule="evenodd"/>
                     </svg>
 
+                    <!-- Chevrón hacia abajo -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
-                      aria-hidden='true'
-                      focusable='false'
-                      class='icon icon-minus twcss-w-6 twcss-h-6 twcss-hidden group-open/details:twcss-block'
-                      fill='none'
-                      viewBox='0 0 10 2'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'
+                      class='icon icon-chevron-down twcss-w-10 twcss-h-10 twcss-hidden group-open/details:twcss-block'
                     >
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor">
-                      </path>
+                      <path fill-rule="evenodd" d="M10 13.293l-4.146-4.147a.5.5 0 00-.708.708l4.5 4.5a.5.5 0 00.708 0l4.5-4.5a.5.5 0 10-.708-.708L10 13.293z" clip-rule="evenodd"/>
                     </svg>
                   </summary>
 
                   <div
-                    id='CollapsibleAccordion-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
-                    role='region'
-                    aria-labelledby='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
-                    class='respuesta twcss-mt-5 twcss-text-secondary-grey-2 twcss-text-lg [&amp;_a]:twcss-text-brand-cta-blue [&amp;_a]:twcss-underline lg:twcss-mt-6'
+                    class='respuesta lg:twcss-mt-6 twcss-mt-6'
                     data-tema='{{ block.id }}'
                   >
                     {%- if block.settings.contentdos != blank -%}
-                      <p>{{ block.settings.contentdos }}</p>
+                      <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-2xl'>
+                        {{ block.settings.contentdos }}
+                      </p>
+                    {%- endif -%}
+                  </div>
+                </details>
+              </div>
+              <!-- block -->
+              <div
+                id='{{ block.id }}-2'
+                role='tabpanel'
+                tabindex='-1'
+                aria-hidden='false'
+                aria-labelledby='tab-2-trigger'
+                class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
+                data-tema='{{ block.id }}'
+              >
+                <details
+                  class='twcss-group/details twcss-bg-grey twcss-p-8 lg:twcss-p-10 twcss-mb-5 twcss-mx-0 lg:twcss-mx-0 '
+                  style='background-color: {{ section.settings.background_color_card }};'
+                >
+                  <summary
+                    id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
+                    class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
+                  >
+                    {%- if block.settings.titletres != blank -%}
+                      <p class='twcss-font-medium lg:twcss-text-4xl twcss-text-3xl twcss-grid twcss-grid-cols-1 twcss-justify-start lg:twcss-mt-[5px] lg:twcss-mb-[5px]'>
+                        {{ block.settings.titletres }}
+                      </p>
+                    {%- endif -%}
+
+                    <!-- Chevrón hacia arriba -->
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'
+                      class='icon icon-chevron-up twcss-w-10 twcss-h-10 group-open/details:twcss-hidden'
+                    >
+                      <path fill-rule="evenodd" d="M10 6.707l4.146 4.147a.5.5 0 00.708-.708l-4.5-4.5a.5.5 0 00-.708 0l-4.5 4.5a.5.5 0 10.708.708L10 6.707z" clip-rule="evenodd"/>
+                    </svg>
+
+                    <!-- Chevrón hacia abajo -->
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      viewBox='0 0 20 20'
+                      fill='currentColor'
+                      class='icon icon-chevron-down twcss-w-10 twcss-h-10 twcss-hidden group-open/details:twcss-block'
+                    >
+                      <path fill-rule="evenodd" d="M10 13.293l-4.146-4.147a.5.5 0 00-.708.708l4.5 4.5a.5.5 0 00.708 0l4.5-4.5a.5.5 0 10-.708-.708L10 13.293z" clip-rule="evenodd"/>
+                    </svg>
+                  </summary>
+
+                  <div
+                    class='respuesta lg:twcss-mt-6 twcss-mt-6'
+                    data-tema='{{ block.id }}'
+                  >
+                    {%- if block.settings.contenttres != blank -%}
+                      <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-2xl'>
+                        {{ block.settings.contenttres }}
+                      </p>
                     {%- endif -%}
                   </div>
                 </details>
@@ -174,7 +238,7 @@
 {% schema %}
 {
   "name": "FAQs",
-  "max_blocks": 4,
+  "max_blocks": 8,
   "settings": [
     {
       "type": "color_scheme",

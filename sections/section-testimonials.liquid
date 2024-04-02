@@ -7,11 +7,11 @@
     style='max-width:1200px; margin-left: auto; margin-right: auto;'
   >
     <div
-      class='twcss-px-6 twcss-py-10 lg:twcss-container lg:twcss-max-w-screen-xlg lg:twcss-pt-[--padding-top] lg:twcss-pb-[--padding-bottom]'
+      class='twcss-px-8 twcss-py-10 lg:twcss-container lg:twcss-max-w-screen-xlg lg:twcss-pt-[--padding-top] lg:twcss-pb-[--padding-bottom]'
       style='--padding-top: {{ section.settings.padding_top | round: 0 }}px; --padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;'
     >
       <div class='twcss-grid twcss-grid-cols-12 twcss-gap-4 twcss-items-center'>
-        <div class='twcss-mx-5 twcss-col-span-12 lg:twcss-col-span-5'>
+        <div class='twcss-mx-0 twcss-col-span-12 lg:twcss-col-span-5'>
           <div class='twcss-flex twcss-flex-col twcss-gap-4 lg:twcss-gap-4'>
             {%- if section.settings.subtitle != blank -%}
               <h2
@@ -43,8 +43,8 @@
             {%- for block in section.blocks -%}
               <div class='custon123 twcss-pt-14 {% if section.blocks.size == 3 or section.blocks.size == 4 %} first:twcss-hidden last:twcss-hidden {% endif %} lg:first:twcss-block lg:last:twcss-block lg:first:twcss-pt-0 lg:twcss-pt-20 lg:twcss-pr-10'>
                 <div
-                  class='twcss-bg-white twcss-p-5 twcss-mx-1 twcss-mb-5 twcss-rounded-2xl lg:twcss-p-8 '
-                  style='background-color: {{ section.settings.background_color_card }};'
+                  class='twcss-bg-white twcss-p-10 twcss-mx-2 twcss-mb-5 twcss-rounded-2xl lg:twcss-p-8 twcss-pb-14 twcss-px-14'
+                  style='background-color: {{ section.settings.background_color_card | color_modify: 'alpha', section.settings.background_alpha }};'
                 >
                   {%- if block.settings.image != blank -%}
                     {{
@@ -64,7 +64,7 @@
                   {%- endif -%}
 
                   {%- if block.settings.content != blank -%}
-                    <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-1xl twcss-mt-5 lg:twcss-mt-6 '>
+                    <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-1xl twcss-mt-5 lg:twcss-mt-6 twcss-pt-2'>
                       {{ block.settings.content | truncate: 255 }}
                     </p>
                   {%- endif -%}
@@ -73,7 +73,7 @@
             {%- endfor -%}
           </div>
 
-          <div class='lg:twcss-hidden twcss-flex twcss-mx-3 twcss-gap-2 twcss-justify-center twcss-px-16 twcss-py-3 twcss-mt-6 twcss-font-semibold twcss-rounded-md twcss-border-2 twcss-border-solid twcss-border-neutral-100 twcss-leading-[124%]'>
+          <div class='botontt lg:twcss-hidden twcss-flex twcss-mx-3 twcss-gap-2 twcss-justify-center twcss-px-16 twcss-py-3 twcss-mt-6 twcss-font-semibold twcss-rounded-md twcss-border-2 twcss-border-solid twcss-border-neutral-100 twcss-leading-[124%]'>
             {% if section.blocks.size > 2 %}
               <a
                 href='{{ section.settings.link_url }}'
@@ -112,6 +112,15 @@
       "id": "background_color_card",
       "label": "Background Color Card",
       "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "background_alpha",
+      "label": "Percentage Color Fading",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 1
     },
     {
       "type": "text",

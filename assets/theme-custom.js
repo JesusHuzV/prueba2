@@ -1,17 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
   const showMoreButton = document.getElementById('showMoreButton');
   const testimonials = document.querySelectorAll('.custon123');
-
+  
   if (testimonials.length >= 3) {
     const primeroTestimonials = testimonials[0];
     const segundoTestimonial = testimonials[testimonials.length - 1];
-
+  
     showMoreButton.addEventListener('click', function () {
       primeroTestimonials.classList.remove('first:twcss-hidden');
       segundoTestimonial.classList.remove('last:twcss-hidden');
+      // Ocultar el div contenedor del botón después de hacer clic
+      showMoreButton.parentElement.style.display = 'none';
     });
   } else {
-    showMoreButton.style.display = 'none';
+    showMoreButton.parentElement.style.display = 'none'; // Ocultar el div contenedor del botón si no hay suficientes testimonios
   }
   let preguntaDesplegada = true; // Bandera para indicar si alguna pregunta está desplegada
 
@@ -24,9 +26,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Si alguna pregunta ya está desplegada, cierra todas las preguntas
         cerrarTodasPreguntas();
       }
+      
       // Muestra las preguntas y respuestas del tema seleccionado
       mostrarPreguntas(idTema);
-      preguntaDesplegada = true; // Actualiza la bandera
+
+      // Remover la clase twcss-text-amber-500 de todos los botones--------------
+      botonesPregunta.forEach(function (boton) {
+        boton.classList.remove('twcss-text-amber-500');
+      });
+
+      // Añadir la clase twcss-text-amber-500 al botón actual-------------
+      this.classList.add('twcss-text-amber-500');
+
+
     });
   });
 
@@ -35,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     preguntasRespuestas.forEach(function (item) {
       item.style.display = 'none';
     });
-    preguntaDesplegada = false; // Actualiza la bandera
+  
   }
 
   function mostrarPreguntas(id) {
@@ -67,12 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const primerBoton = document.querySelector('.boton-pregunta');
 
-  // Verifica si se encontró algún botón de pregunta
+  // Verificar si se encontró algún botón de pregunta
   if (primerBoton) {
-    // Obtiene el ID del tema asociado al primer botón de pregunta
+    // Obtener el ID del tema asociado al primer botón de pregunta
     const idPrimerTema = primerBoton.getAttribute('data-id');
 
-    // Muestra las preguntas y respuestas del primer tema por defecto
+    // Mostrar las preguntas y respuestas del primer tema por defecto
     mostrarPreguntas(idPrimerTema);
+
+    // Añadir la clase twcss-text-amber-500 al primer botón
+    primerBoton.classList.add('twcss-text-amber-500');
   }
+
+  
 });

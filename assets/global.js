@@ -837,17 +837,24 @@ class SlideshowComponent extends SliderComponent {
     // Value below should match --duration-announcement-bar CSS value
     this.announcerBarAnimationDelay = this.announcementBarSlider ? 250 : 0;
 
-    this.sliderControlLinksArray = Array.from(this.sliderControlWrapper.querySelectorAll('.slider-counter__link'));
-    this.sliderControlLinksArray.forEach((link) => link.addEventListener('click', this.linkToSlide.bind(this)));
+    this.sliderControlLinksArray = Array.from(
+      this.sliderControlWrapper.querySelectorAll('.slider-counter__link'),
+    );
+    this.sliderControlLinksArray.forEach((link) =>
+      link.addEventListener('click', this.linkToSlide.bind(this)),
+    );
     this.slider.addEventListener('scroll', this.setSlideVisibility.bind(this));
     this.setSlideVisibility();
 
     if (this.announcementBarSlider) {
       this.announcementBarArrowButtonWasClicked = false;
 
-      this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      this.reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      );
       this.reducedMotion.addEventListener('change', () => {
-        if (this.slider.getAttribute('data-autoplay') === 'true') this.setAutoPlay();
+        if (this.slider.getAttribute('data-autoplay') === 'true')
+          this.setAutoPlay();
       });
 
       [this.prevButton, this.nextButton].forEach((button) => {
@@ -1058,7 +1065,9 @@ class SlideshowComponent extends SliderComponent {
     const isFirstSlide = currentIndex === 0;
     const isLastSlide = currentIndex === itemsCount - 1;
 
-    const shouldMoveNext = (button === 'next' && !isLastSlide) || (button === 'previous' && isFirstSlide);
+    const shouldMoveNext =
+      (button === 'next' && !isLastSlide) ||
+      (button === 'previous' && isFirstSlide);
     const direction = shouldMoveNext ? 'next' : 'previous';
 
     currentSlide.classList.add(`${animationClassOut}-${direction}`);
@@ -1075,7 +1084,9 @@ class SlideshowComponent extends SliderComponent {
     const slideScrollPosition =
       this.slider.scrollLeft +
       this.sliderFirstItemNode.clientWidth *
-      (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+        (this.sliderControlLinksArray.indexOf(event.currentTarget) +
+          1 -
+          this.currentPage);
     this.slider.scrollTo({
       left: slideScrollPosition,
     });
@@ -1244,8 +1255,11 @@ class VariantSelects extends HTMLElement {
       : this.dataset.section;
 
     fetch(
-      `${this.dataset.url}?variant=${requestedVariantId}&section_id=${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section
-      }`
+      `${this.dataset.url}?variant=${requestedVariantId}&section_id=${
+        this.dataset.originalSection
+          ? this.dataset.originalSection
+          : this.dataset.section
+      }`,
     )
       .then((response) => response.text())
       .then((responseText) => {
@@ -1285,18 +1299,37 @@ class VariantSelects extends HTMLElement {
         );
 
         const volumePricingSource = html.getElementById(
-          `Volume-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`
+          `Volume-${
+            this.dataset.originalSection
+              ? this.dataset.originalSection
+              : this.dataset.section
+          }`,
         );
 
-        const pricePerItemDestination = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
-        const pricePerItemSource = html.getElementById(`Price-Per-Item-${this.dataset.originalSection ? this.dataset.originalSection : this.dataset.section}`);
+        const pricePerItemDestination = document.getElementById(
+          `Price-Per-Item-${this.dataset.section}`,
+        );
+        const pricePerItemSource = html.getElementById(
+          `Price-Per-Item-${
+            this.dataset.originalSection
+              ? this.dataset.originalSection
+              : this.dataset.section
+          }`,
+        );
 
-        const volumePricingDestination = document.getElementById(`Volume-${this.dataset.section}`);
-        const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
-        const volumeNote = document.getElementById(`Volume-Note-${this.dataset.section}`);
+        const volumePricingDestination = document.getElementById(
+          `Volume-${this.dataset.section}`,
+        );
+        const qtyRules = document.getElementById(
+          `Quantity-Rules-${this.dataset.section}`,
+        );
+        const volumeNote = document.getElementById(
+          `Volume-Note-${this.dataset.section}`,
+        );
 
         if (volumeNote) volumeNote.classList.remove('hidden');
-        if (volumePricingDestination) volumePricingDestination.classList.remove('hidden');
+        if (volumePricingDestination)
+          volumePricingDestination.classList.remove('hidden');
         if (qtyRules) qtyRules.classList.remove('hidden');
 
         if (source && destination) destination.innerHTML = source.innerHTML;
@@ -1304,7 +1337,10 @@ class VariantSelects extends HTMLElement {
           inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;
-          skuDestination.classList.toggle('hidden', skuSource.classList.contains('hidden'));
+          skuDestination.classList.toggle(
+            'hidden',
+            skuSource.classList.contains('hidden'),
+          );
         }
 
         if (volumePricingSource && volumePricingDestination) {
@@ -1313,7 +1349,10 @@ class VariantSelects extends HTMLElement {
 
         if (pricePerItemSource && pricePerItemDestination) {
           pricePerItemDestination.innerHTML = pricePerItemSource.innerHTML;
-          pricePerItemDestination.classList.toggle('hidden', pricePerItemSource.classList.contains('hidden'));
+          pricePerItemDestination.classList.toggle(
+            'hidden',
+            pricePerItemSource.classList.contains('hidden'),
+          );
         }
 
         const price = document.getElementById(`price-${this.dataset.section}`);
@@ -1321,7 +1360,10 @@ class VariantSelects extends HTMLElement {
         if (price) price.classList.remove('hidden');
 
         if (inventoryDestination)
-          inventoryDestination.classList.toggle('hidden', inventorySource.innerText === '');
+          inventoryDestination.classList.toggle(
+            'hidden',
+            inventorySource.innerText === '',
+          );
 
         const addButtonUpdated = html.getElementById(
           `ProductSubmitButton-${sectionId}`,
@@ -1372,10 +1414,18 @@ class VariantSelects extends HTMLElement {
       `Inventory-${this.dataset.section}`,
     );
     const sku = document.getElementById(`Sku-${this.dataset.section}`);
-    const pricePerItem = document.getElementById(`Price-Per-Item-${this.dataset.section}`);
-    const volumeNote = document.getElementById(`Volume-Note-${this.dataset.section}`);
-    const volumeTable = document.getElementById(`Volume-${this.dataset.section}`);
-    const qtyRules = document.getElementById(`Quantity-Rules-${this.dataset.section}`);
+    const pricePerItem = document.getElementById(
+      `Price-Per-Item-${this.dataset.section}`,
+    );
+    const volumeNote = document.getElementById(
+      `Volume-Note-${this.dataset.section}`,
+    );
+    const volumeTable = document.getElementById(
+      `Volume-${this.dataset.section}`,
+    );
+    const qtyRules = document.getElementById(
+      `Quantity-Rules-${this.dataset.section}`,
+    );
 
     if (!addButton) return;
     addButtonText.textContent = window.variantStrings.unavailable;

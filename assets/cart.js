@@ -48,7 +48,12 @@ class CartItems extends HTMLElement {
   }
 
   onChange(event) {
-    this.updateQuantity(event.target.dataset.index, event.target.value, document.activeElement.getAttribute('name'), event.target.dataset.quantityVariantId);
+    this.updateQuantity(
+      event.target.dataset.index,
+      event.target.value,
+      document.activeElement.getAttribute('name'),
+      event.target.dataset.quantityVariantId,
+    );
   }
 
   onCartUpdate() {
@@ -56,7 +61,10 @@ class CartItems extends HTMLElement {
       fetch(`${routes.cart_url}?section_id=cart-drawer`)
         .then((response) => response.text())
         .then((responseText) => {
-          const html = new DOMParser().parseFromString(responseText, 'text/html');
+          const html = new DOMParser().parseFromString(
+            responseText,
+            'text/html',
+          );
           const selectors = ['cart-drawer-items', '.cart-drawer__footer'];
           for (const selector of selectors) {
             const targetElement = document.querySelector(selector);
@@ -73,7 +81,10 @@ class CartItems extends HTMLElement {
       fetch(`${routes.cart_url}?section_id=main-cart-items`)
         .then((response) => response.text())
         .then((responseText) => {
-          const html = new DOMParser().parseFromString(responseText, 'text/html');
+          const html = new DOMParser().parseFromString(
+            responseText,
+            'text/html',
+          );
           const sourceQty = html.querySelector('cart-items');
           this.innerHTML = sourceQty.innerHTML;
         })
@@ -199,7 +210,11 @@ class CartItems extends HTMLElement {
           );
         }
 
-        publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId: variantId });
+        publish(PUB_SUB_EVENTS.cartUpdate, {
+          source: 'cart-items',
+          cartData: parsedState,
+          variantId: variantId,
+        });
       })
       .catch(() => {
         this.querySelectorAll('.loading-overlay').forEach((overlay) =>

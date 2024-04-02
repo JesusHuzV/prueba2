@@ -128,8 +128,8 @@
         "text_6xyteK"
       ],
       "settings": {
-        "color_scheme": "",
-        "background_color_card": "#ffffff",
+        "color_scheme": "inverse",
+        "background_color_card": "#1773b0",
         "title": "Related information",
         "padding_top": 80,
         "padding_bottom": 80

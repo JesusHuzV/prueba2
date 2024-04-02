@@ -1,10 +1,68 @@
 {
   "sections": {
     "main": {
-      "type": "main-404"
+      "type": "main-404",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "section_testimonials_bHrMBQ": {
+      "type": "section-testimonials",
+      "blocks": {
+        "text_EBeNeU": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/r1.jpg",
+            "name": "James Peterson, RN",
+            "content": "<p>Working as a home health nurse, I've encountered many DME providers, but none compare to Home Medix. <strong>Their team's knowledge and dedication to finding the right equipment for each patient are remarkable.<\/strong> They truly prioritize customer service, making them a pleasure to work with.<\/p>"
+          }
+        },
+        "text_d6KQiM": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/r1.jpg",
+            "name": "James Peterson, RN",
+            "content": "<p>Working as a home health nurse, I've encountered many DME providers, but none compare to Home Medix. <strong>Their team's knowledge and dedication to finding the right equipment for each patient are remarkable.<\/strong> They truly prioritize customer service, making them a pleasure to work with.<\/p>"
+          }
+        },
+        "text_wVJeLF": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/r1.jpg",
+            "name": "James Peterson, RN",
+            "content": "<p>Working as a home health nurse, I've encountered many DME providers, but none compare to Home Medix. <strong>Their team's knowledge and dedication to finding the right equipment for each patient are remarkable.<\/strong> They truly prioritize customer service, making them a pleasure to work with.<\/p>"
+          }
+        },
+        "text_Mwba9f": {
+          "type": "text",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/r1.jpg",
+            "name": "James Peterson, RN",
+            "content": "<p>Working as a home health nurse, I've encountered many DME providers, but none compare to Home Medix. <strong>Their team's knowledge and dedication to finding the right equipment for each patient are remarkable.<\/strong> They truly prioritize customer service, making them a pleasure to work with.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_EBeNeU",
+        "text_d6KQiM",
+        "text_wVJeLF",
+        "text_Mwba9f"
+      ],
+      "settings": {
+        "color_scheme": "inverse",
+        "background_color_card": "#1773b0",
+        "subtitle": "What our customers say",
+        "title": "What our customers say",
+        "description": "Lorem ipsum dolor sit amet dolor consectetur adipiscing elitipsum sit",
+        "link_text": "See more reviews",
+        "link_url": "\/",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "section_testimonials_bHrMBQ"
   ]
 }

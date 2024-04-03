@@ -51,7 +51,7 @@
       "settings": {
         "color_scheme": "inverse",
         "background_color_card": "#8db017",
-        "background_alpha": 1,
+        "background_alpha": 0.6,
         "subtitle": "Test 1 What our customers say",
         "title": "Test 1What our customers say",
         "description": "Test 1 Lorem ipsum dolor sit amet dolor consectetur adipiscing elitipsum sit",

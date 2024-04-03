@@ -93,14 +93,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   
 });
-
-window.addEventListener('load', function() {
-    // Obtener la altura de la sección de abajo
-    var sectionAbajo = document.querySelector('.section-abajo');
-    var sectionAbajoAltura = sectionAbajo.offsetHeight;
-  alert("hola")
-
-    // Ajustar la posición del header para que esté justo debajo de la sección de abajo
-    var header = document.querySelector('.header-wrapper');
-    header.style.top = sectionAbajoAltura + 'px';
-});

@@ -42,6 +42,9 @@
     justify-self: start;
     margin-left: -1.2rem;
   }
+  .transparent-background {
+  background-color: transparent;
+}
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
@@ -158,9 +161,10 @@
 {%- else -%}
   div
 {%- endif %}
-class="header-wrapper color-{{ section.settings.color_scheme }} gradient
+class="header-wrapper transparent-background
 {%- if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif -%}
 ">
+
 {%- liquid
   assign social_links = false
   assign localization_forms = false

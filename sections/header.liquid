@@ -45,6 +45,18 @@
   .transparent-background {
   background-color: transparent;
 }
+  .section-abajo {
+    position: relative; /* Asegura que el header se posicione correctamente sobre esta sección */
+    z-index: 1; /* Asegura que el header esté por encima de esta sección */
+}
+
+.header-wrapper {
+    position: absolute; /* Permite posicionar el header de forma absoluta dentro de su contenedor */
+    top: 0; /* Lo posiciona en la parte superior del contenedor */
+    left: 0; /* Lo posiciona en la parte izquierda del contenedor */
+    width: 100%; /* Ajusta el ancho del header para que ocupe todo el ancho del contenedor */
+    background-color: transparent; /* Hace que el fondo del header sea transparente */
+}
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {

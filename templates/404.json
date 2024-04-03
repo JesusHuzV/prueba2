@@ -68,13 +68,13 @@
           "type": "text",
           "settings": {
             "name": "Test Subtítulo 1",
-            "titleuno": "Test 1 Lorem ipsum dolor sit amet 11",
+            "titleuno": "Test 1 título drop down",
             "contentuno": "<p>Test 1 We regret that Medline at home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
-            "titledos": "Test 2 Lorem ipsum dolor sit amet 12",
+            "titledos": "Test 2 título drop down",
             "contentdos": "<p>Test 2 We regret that Medline at home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
-            "titletres": "Test 3 Lorem ipsum dolor sit amet 13",
+            "titletres": "Test 3 título drop down",
             "contenttres": "<p>Test 3 We regret that Medline at home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
-            "titlecuatro": "Test 4 Lorem ipsum dolor sit amet 14",
+            "titlecuatro": "Test 4 título drop down",
             "contentcuatro": "<p>Test 4 We regret that Medline at home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>"
           }
         },

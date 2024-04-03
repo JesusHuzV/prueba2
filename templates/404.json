@@ -50,7 +50,7 @@
       ],
       "settings": {
         "color_scheme": "inverse",
-        "background_color_card": "#8db017",
+        "background_color_card": "#084658",
         "background_alpha": 0.6,
         "subtitle": "Test 1 What our customers say",
         "title": "Test 1What our customers say",
@@ -129,7 +129,7 @@
       ],
       "settings": {
         "color_scheme": "inverse",
-        "background_color_card": "#34400c",
+        "background_color_card": "#144566",
         "title": "Test 1 Related information",
         "padding_top": 80,
         "padding_bottom": 80

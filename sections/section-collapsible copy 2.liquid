@@ -8,7 +8,7 @@
   >
     <div
       class='twcss-px-8 twcss-py-10 lg:twcss-container lg:twcss-max-w-screen-xlg lg:twcss-pt-[--padding-top] lg:twcss-pb-[--padding-bottom]'
-      style='--padding-top: {{ section.settings.padding_top | round: 0 }}px; --padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;'
+      style='padding-top: {{ section.settings.padding_top | round: 0 }}px; padding-bottom: {{ section.settings.padding_bottom | round: 0 }}px;'
     >
       <div class='twcss-grid twcss-grid-cols-12 twcss-gap-4'>
         <div class='twcss-col-span-12 lg:twcss-col-span-12'>
@@ -49,7 +49,7 @@
           {%- for block in section.blocks -%}
             <div
               class='preguntas-tema'
-              style='display: none;'
+              style='display:none;'
               data-tema='{{ block.id }}'
               id='{{ block.id }}'
             >
@@ -227,63 +227,6 @@
                   </div>
                 </details>
               </div>
-              <!-- block -->
-              <div
-                id='{{ block.id }}-4'
-                role='tabpanel'
-                tabindex='-1'
-                aria-hidden='false'
-                aria-labelledby='tab-2-trigger'
-                class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
-                data-tema='{{ block.id }}'
-              >
-                <details
-                  class='twcss-group/details twcss-bg-grey twcss-p-8 lg:twcss-p-10 twcss-mb-5 twcss-mx-0 lg:twcss-mx-0 '
-                  style='background-color: {{ section.settings.background_color_card }};'
-                >
-                  <summary
-                    id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
-                    class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
-                  >
-                    {%- if block.settings.titlecuatro != blank -%}
-                      <p class='twcss-font-medium lg:twcss-text-4xl twcss-text-3xl twcss-grid twcss-grid-cols-1 twcss-justify-start lg:twcss-mt-[5px] lg:twcss-mb-[5px]'>
-                        {{ block.settings.titlecuatro }}
-                      </p>
-                    {%- endif -%}
-
-                    <!-- Chevrón hacia arriba -->
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      viewBox='0 0 20 20'
-                      fill='currentColor'
-                      class='icon icon-chevron-up twcss-w-10 twcss-h-10 group-open/details:twcss-hidden'
-                    >
-                      <path fill-rule="evenodd" d="M10 6.707l4.146 4.147a.5.5 0 00.708-.708l-4.5-4.5a.5.5 0 00-.708 0l-4.5 4.5a.5.5 0 10.708.708L10 6.707z" clip-rule="evenodd"/>
-                    </svg>
-
-                    <!-- Chevrón hacia abajo -->
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      viewBox='0 0 20 20'
-                      fill='currentColor'
-                      class='icon icon-chevron-down twcss-w-10 twcss-h-10 twcss-hidden group-open/details:twcss-block'
-                    >
-                      <path fill-rule="evenodd" d="M10 13.293l-4.146-4.147a.5.5 0 00-.708.708l4.5 4.5a.5.5 0 00.708 0l4.5-4.5a.5.5 0 10-.708-.708L10 13.293z" clip-rule="evenodd"/>
-                    </svg>
-                  </summary>
-
-                  <div
-                    class='respuesta lg:twcss-mt-6 twcss-mt-6'
-                    data-tema='{{ block.id }}'
-                  >
-                    {%- if block.settings.contentcuatro != blank -%}
-                      <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-2xl'>
-                        {{ block.settings.contentcuatro }}
-                      </p>
-                    {%- endif -%}
-                  </div>
-                </details>
-              </div>
             </div>
           {%- endfor -%}
         </div>
@@ -291,64 +234,6 @@
     </div>
   </div>
 </section>
-
-{% javascript %}
-  const primerBoton = document.querySelector('.boton-pregunta');
-
-  // Verificar si se encontró algún botón de pregunta
-  if (primerBoton) {
-    // Obtener el ID del tema asociado al primer botón de pregunta
-    const idPrimerTema = primerBoton.getAttribute('data-id');
-
-    // Mostrar las preguntas y respuestas del primer tema por defecto
-    mostrarPreguntas(idPrimerTema);
-
-    // Añadir la clase twcss-text-amber-500 al primer botón
-    primerBoton.classList.add('twcss-text-amber-500');
-  }
-  let preguntaDesplegada = true; // Bandera para indicar si alguna pregunta está desplegada
-
-  const botonesPregunta = document.querySelectorAll('.boton-pregunta');
-
-  botonesPregunta.forEach(function (boton) {
-    boton.addEventListener('click', function () {
-      const idTema = this.getAttribute('data-id');
-
-      // Muestra las preguntas y respuestas del tema seleccionado
-      cerrarTodasPreguntas();
-      mostrarPreguntas(idTema);
-
-      // Remover la clase twcss-text-amber-500 de todos los botones--------------
-      botonesPregunta.forEach(function (boton) {
-        boton.classList.remove('twcss-text-amber-500');
-      });
-
-      // Añadir la clase twcss-text-amber-500 al botón actual-------------
-      this.classList.add('twcss-text-amber-500');
-    });
-  });
-
-  function cerrarTodasPreguntas() {
-    const preguntasRespuestas = document.querySelectorAll('.preguntas-tema');
-    preguntasRespuestas.forEach(function (item) {
-      item.style.display = 'none';
-    });
-  }
-
-  function mostrarPreguntas(id) {
-    // Obtiene todas las preguntas del tema actual
-    var preguntasRespuestasTema = document.querySelectorAll('.preguntas-tema[data-tema="' + id + '"]');
-
-    // Cierra todas las preguntas del tema actual
-    preguntasRespuestasTema.forEach(function (item) {
-      item.style.display = 'none';
-    });
-
-    // Abre la pregunta seleccionada
-    var preguntaMostrar = document.getElementById(id);
-    preguntaMostrar.style.display = 'block';
-  }
-{% endjavascript %}
 
 {% schema %}
 {

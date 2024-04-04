@@ -41,54 +41,22 @@
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
-    
   }
   .transparent-background {
-    background-color: transparent;
-  }
-  .header-wrapper {
-    top: 0;
-    z-index: 1000; 
-    /*background-color: rgba(255, 255, 255, 0.8); */
-    padding: 0px; 
-    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.08);
-    position: fixed; /* Permite que el header se mantenga fijo en la parte superior de la ventana mientras se desplaza */
-    left: 0;
-    width: 100%;
-
-
-
-
+  background-color: transparent;
 }
-.header {
-  display: flex;
-  justify-content: space-between; /* Distribuye los elementos a lo largo del espacio disponible */
-  align-items: center; /* Centra verticalmente los elementos */
-  padding-top: 0px;
-  padding-bottom: 0px;
-  
-}
-.header__inline-menu .list-menu__item {
-  background-color: transparent; /* Fondo transparente por defecto */
-  padding: 10px 15px; 
-  border-radius: 5px; 
-  margin-right: 10px;
+  .section-abajo {
+    position: relative; /* Asegura que el header se posicione correctamente sobre esta sección */
+    z-index: 1; /* Asegura que el header esté por encima de esta sección */
 }
 
-@media only screen and (min-width: 768px) {
-  .header__heading {
-    margin-right: auto; /* Mueve el logo al extremo izquierdo */
-  }
-
-  .header__inline-menu {
-    margin-left: auto; /* Mueve el menú al extremo derecho */
-  }
+.header-wrapper {
+    position: absolute; /* Permite posicionar el header de forma absoluta dentro de su contenedor */
+    top: 0; /* Lo posiciona en la parte superior del contenedor */
+    left: 0; /* Lo posiciona en la parte izquierda del contenedor */
+    width: 100%; /* Ajusta el ancho del header para que ocupe todo el ancho del contenedor */
+    background-color: transparent; /* Hace que el fondo del header sea transparente */
 }
-/* 
-  .header:not(.drawer-menu).page-width {
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }*/
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
@@ -153,26 +121,6 @@
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
   }
-  .header__menu-item {
-  text-decoration: none;
-  color: {{  section.settings.color_font_menu }};
-}
-.header__menu-item:hover {
-  text-decoration: none;
-  color: {{  section.settings.color_font_menu }};
-}
-.header__menu-item .header__active-menu-item {
-  color: {{  section.settings.color_font_menu }};
-  }
-  .header__inline-menu .list-menu__item:hover {
-  background-color: {{  section.settings.color_font_menu_bg }}; /* Color de fondo transparente cuando se pasa el ratón */
-}
-
-.header__inline-menu .list-menu__item:active,
-.header__inline-menu .list-menu__item.header__active-menu-item {
-  background-color: #{{  section.settings.color_font_menu_bg }}; /* Color de fondo cuando el enlace está activo */
-}
-
 
   @media screen and (min-width: 750px) {
     .section-header {
@@ -220,14 +168,15 @@
   endfor
 %}
 
-<{% if section.settings.sticky_header_type != 'none' -%}
-  sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"
+{% if section.settings.sticky_header_type != 'none' -%}
+  <sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"
 {%- else -%}
   div
 {%- endif %}
-class="header-wrapper transparent-background
+class="header-wrapper transparent-background header-wrapper"
 {%- if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif -%}
 ">
+
 {%- liquid
   assign social_links = false
   assign localization_forms = false
@@ -240,9 +189,7 @@ class="header-wrapper transparent-background
     assign localization_forms = true
   endif
 -%}
-<header class='header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}'
-  style="color: {{ section.settings.background_font }};">
-  
+<header class='header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}'>
   {%- liquid
     if section.settings.menu != blank
       render 'header-drawer'
@@ -257,12 +204,7 @@ class="header-wrapper transparent-background
     {%- if request.page_type == 'index' -%}
       <h1 class='header__heading'>
     {%- endif -%}
-    <a href='{%- if section.settings.link_url != blank -%} 
-      {{ section.settings.link_url }} 
-  {%- elsif routes.root_url != blank -%} 
-      {{ routes.root_url }} 
-  {%- endif -%}' class='header__heading-link link link--text focus-inset'>
-      <!-- <a href='{{ routes.root_url }}' class='header__heading-link link link--text focus-inset'> -->
+    <a href='{{ routes.root_url }}' class='header__heading-link link link--text focus-inset'>
       {%- if settings.logo != blank -%}
         <div class='header__heading-logo-wrapper'>
           {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
@@ -305,12 +247,7 @@ class="header-wrapper transparent-background
     {%- if request.page_type == 'index' -%}
       <h1 class='header__heading'>
     {%- endif -%}
-    <a href='{%- if section.settings.link_url != blank -%} 
-      {{ section.settings.link_url }} 
-  {%- elsif routes.root_url != blank -%} 
-      {{ routes.root_url }} 
-  {%- endif -%}' class='header__heading-link link link--text focus-inset'>
-      <!-- <a href='{{ routes.root_url }}' class='header__heading-link link link--text focus-inset'> -->
+    <a href='{{ routes.root_url }}' class='header__heading-link link link--text focus-inset'>
       {%- if settings.logo != blank -%}
         <div class='header__heading-logo-wrapper'>
           {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
@@ -447,7 +384,6 @@ class="header-wrapper transparent-background
           {% render block %}
       {%- endcase -%}
     {%- endfor -%}
-    
   </div>
 </header>
 <{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
@@ -645,11 +581,6 @@ class="header-wrapper transparent-background
       "info": "t:sections.header.settings.logo_help.content"
     },
     {
-      "type": "text",
-      "id": "link_url",
-      "label": "Url logo"
-    },
-    {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
@@ -675,17 +606,6 @@ class="header-wrapper transparent-background
       "default": "dropdown",
       "label": "t:sections.header.settings.menu_type_desktop.label",
       "info": "t:sections.header.settings.menu_type_desktop.info"
-    },
-    {
-      "type": "color",
-      "id": "color_font_menu",
-      "label": "Color Font",
-      "default": "#000000"
-    }, {
-      "type": "color",
-      "id": "color_font_menu_bg",
-      "label": "Color Background Font",
-      "default": "#000000"
     },
     {
       "type": "select",
@@ -716,11 +636,11 @@ class="header-wrapper transparent-background
       "id": "show_line_separator",
       "default": true,
       "label": "t:sections.header.settings.show_line_separator.label"
-    },/*
+    },
     {
       "type": "header",
       "content": "t:sections.header.settings.header__1.content"
-    },
+    }/*,
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -774,7 +694,7 @@ class="header-wrapper transparent-background
       ],
       "default": "center",
       "label": "t:sections.header.settings.mobile_logo_position.label"
-    },*/
+    },
     {
       "type": "header",
       "content": "t:sections.all.spacing"
@@ -788,7 +708,7 @@ class="header-wrapper transparent-background
       "unit": "px",
       "label": "t:sections.header.settings.margin_bottom.label",
       "default": 0
-    },
+    }*/,
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"

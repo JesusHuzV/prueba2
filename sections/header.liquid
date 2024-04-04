@@ -228,6 +228,7 @@
 class="header-wrapper transparent-background
 {%- if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif -%}
 ">
+
 {%- liquid
   assign social_links = false
   assign localization_forms = false
@@ -450,6 +451,7 @@ class="header-wrapper transparent-background
     
   </div>
 </header>
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 <{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == 'notification' -%}
@@ -720,7 +722,7 @@ class="header-wrapper transparent-background
     {
       "type": "header",
       "content": "t:sections.header.settings.header__1.content"
-    },
+    }/*,
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -788,7 +790,7 @@ class="header-wrapper transparent-background
       "unit": "px",
       "label": "t:sections.header.settings.margin_bottom.label",
       "default": 0
-    },
+    }*/,
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"

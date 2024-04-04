@@ -31,10 +31,10 @@
       "type": "header",
       "settings": {
         "logo_position": "middle-left",
-        "link_url": "",
+        "link_url": "https:\/\/sprout-theme.myshopify.com\/pages\/contact",
         "menu": "main-menu",
         "menu_type_desktop": "dropdown",
-        "color_font_menu": "#fff",
+        "color_font_menu": "#ffffff",
         "color_font_menu_bg": "#1773b0",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,

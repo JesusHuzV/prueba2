@@ -16,17 +16,62 @@
             "titlecuatro": "Test 4 título drop down",
             "contentcuatro": "<p>Test 4 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>"
           }
+        },
+        "text_nfMMNV": {
+          "type": "text",
+          "settings": {
+            "name": "Test Subtítulo 1",
+            "titleuno": "Test 1 título drop down",
+            "contentuno": "<p>Test 1 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titledos": "Test 2 título drop down",
+            "contentdos": "<p>Test 2 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titletres": "Test 3 título drop down",
+            "contenttres": "<p>Test 3 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titlecuatro": "Test 4 título drop down",
+            "contentcuatro": "<p>Test 4 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>"
+          }
+        },
+        "text_xjJ3xx": {
+          "type": "text",
+          "settings": {
+            "name": "Test Subtítulo 1",
+            "titleuno": "Test 1 título drop down",
+            "contentuno": "<p>Test 1 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titledos": "Test 2 título drop down",
+            "contentdos": "<p>Test 2 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titletres": "Test 3 título drop down",
+            "contenttres": "<p>Test 3 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titlecuatro": "Test 4 título drop down",
+            "contentcuatro": "<p>Test 4 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>"
+          }
+        },
+        "text_jEpFa6": {
+          "type": "text",
+          "settings": {
+            "name": "Test Subtítulo 1",
+            "titleuno": "Test 1 título drop down",
+            "contentuno": "<p>Test 1 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titledos": "Test 2 título drop down",
+            "contentdos": "<p>Test 2 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titletres": "Test 3 título drop down",
+            "contenttres": "<p>Test 3 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>",
+            "titlecuatro": "Test 4 título drop down",
+            "contentcuatro": "<p>Test 4 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>"
+          }
         }
       },
       "block_order": [
-        "text_bXw9Tn"
+        "text_bXw9Tn",
+        "text_nfMMNV",
+        "text_xjJ3xx",
+        "text_jEpFa6"
       ],
       "settings": {
-        "color_scheme": "",
-        "background_color_card": "#ffffff",
+        "color_scheme": "inverse",
+        "background_color_card": "#1773b0",
         "title": "What our customers say",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 160,
+        "padding_bottom": 160
       }
     },
     "main": {

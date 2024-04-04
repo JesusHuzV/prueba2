@@ -15,5 +15,4 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     showMoreButton.parentElement.style.display = 'none'; // Ocultar el div contenedor del botón si no hay suficientes testimonios
   }
-  
 });

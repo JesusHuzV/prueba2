@@ -89,10 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
   const botonesPregunta = document.querySelectorAll('.boton-pregunta');
 

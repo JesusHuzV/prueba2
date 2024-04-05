@@ -58,13 +58,28 @@
             "titlecuatro": "Test 4 título drop down",
             "contentcuatro": "<p>Test 4 We regret that Medline at 1 2 home is not able to ship outside of the United States. We apologize for any inconvenience! If you would like to set up an international business account with Medline, please call Medline customer service at 800-633-5463 and an agent will be happy to direct your call.<\/p>"
           }
+        },
+        "text_ipYPxc": {
+          "type": "text",
+          "settings": {
+            "name": "Test Subtítulo 5",
+            "titleuno": "Title drop down 21",
+            "contentuno": "<p>abcdefg1234567890<\/p>",
+            "titledos": "Title drop down 22",
+            "contentdos": "<p>abcdefg1234567890<\/p>",
+            "titletres": "Title drop down 23",
+            "contenttres": "<p>abcdefg1234567890<\/p>",
+            "titlecuatro": "Title drop down 24",
+            "contentcuatro": "<p>abcdefg1234567890<\/p>"
+          }
         }
       },
       "block_order": [
         "text_bXw9Tn",
         "text_nfMMNV",
         "text_xjJ3xx",
-        "text_jEpFa6"
+        "text_jEpFa6",
+        "text_ipYPxc"
       ],
       "settings": {
         "color_scheme": "inverse",

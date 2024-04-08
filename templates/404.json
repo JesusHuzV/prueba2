@@ -6,6 +6,80 @@
       "settings": {
       }
     },
+    "section_collapsible_nmbXzf": {
+      "type": "section-collapsible",
+      "blocks": {
+        "text_gxwPHi": {
+          "type": "text",
+          "settings": {
+            "name": "lorem ipsum",
+            "titleuno": "lorem ipsum",
+            "contentuno": "<p>asdlorem ipsum<\/p>",
+            "titledos": "lorem ipsum",
+            "contentdos": "<p>lorem ipsum<\/p>",
+            "titletres": "lorem ipsum",
+            "contenttres": "<p>lorem ipsum<\/p>",
+            "titlecuatro": "lorem ipsum",
+            "contentcuatro": "<p>lorem ipsum<\/p>"
+          }
+        },
+        "text_ptfymW": {
+          "type": "text",
+          "settings": {
+            "name": "lorem ipsum",
+            "titleuno": "lorem ipsum",
+            "contentuno": "<p>asdlorem ipsum<\/p>",
+            "titledos": "lorem ipsum",
+            "contentdos": "<p>lorem ipsum<\/p>",
+            "titletres": "lorem ipsum",
+            "contenttres": "<p>lorem ipsum<\/p>",
+            "titlecuatro": "lorem ipsum",
+            "contentcuatro": "<p>lorem ipsum<\/p>"
+          }
+        },
+        "text_xFyf3m": {
+          "type": "text",
+          "settings": {
+            "name": "lorem ipsum",
+            "titleuno": "lorem ipsum",
+            "contentuno": "<p>asdlorem ipsum<\/p>",
+            "titledos": "lorem ipsum",
+            "contentdos": "<p>lorem ipsum<\/p>",
+            "titletres": "lorem ipsum",
+            "contenttres": "<p>lorem ipsum<\/p>",
+            "titlecuatro": "lorem ipsum",
+            "contentcuatro": "<p>lorem ipsum<\/p>"
+          }
+        },
+        "text_DzPYLg": {
+          "type": "text",
+          "settings": {
+            "name": "lorem ipsum",
+            "titleuno": "lorem ipsum",
+            "contentuno": "<p>asdlorem ipsum<\/p>",
+            "titledos": "lorem ipsum",
+            "contentdos": "<p>lorem ipsum<\/p>",
+            "titletres": "lorem ipsum",
+            "contenttres": "<p>lorem ipsum<\/p>",
+            "titlecuatro": "lorem ipsum",
+            "contentcuatro": "<p>lorem ipsum<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_gxwPHi",
+        "text_ptfymW",
+        "text_xFyf3m",
+        "text_DzPYLg"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "background_color_card": "#ffffff",
+        "title": "What our customers say",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "featured_product_ABFQUc": {
       "type": "featured-product",
       "blocks": {
@@ -75,81 +149,11 @@
         "padding_top": 96,
         "padding_bottom": 36
       }
-    },
-    "featured_product_bNBTtb": {
-      "type": "featured-product",
-      "blocks": {
-        "text_PTXyBT": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_VJTLtt": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_et3xeV": {
-          "type": "price",
-          "settings": {
-          }
-        },
-        "variant_picker_ThBLAt": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "quantity_selector_Q3HP8M": {
-          "type": "quantity_selector",
-          "settings": {
-          }
-        },
-        "buy_buttons_V9mxNQ": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_nmEAAX": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_PTXyBT",
-        "title_VJTLtt",
-        "price_et3xeV",
-        "variant_picker_ThBLAt",
-        "quantity_selector_Q3HP8M",
-        "buy_buttons_V9mxNQ",
-        "share_nmEAAX"
-      ],
-      "settings": {
-        "product": "",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
     "main",
-    "featured_product_ABFQUc",
-    "featured_product_bNBTtb"
+    "section_collapsible_nmbXzf",
+    "featured_product_ABFQUc"
   ]
 }

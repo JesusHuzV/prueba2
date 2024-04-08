@@ -36,7 +36,7 @@
         "menu_type_desktop": "dropdown",
         "color_font_menu": "#000000",
         "color_font_menu_bg": "#1773b0",
-        "sticky_header_type": "always",
+        "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "background-1",
         "menu_color_scheme": "",

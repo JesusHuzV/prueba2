@@ -365,14 +365,6 @@
     return temaAbierto === null;
   }
 
-  function recargarPaginaSiNoTemaAbierto() {
- 
-    if (verificarTemaAbierto()) {
-      location.reload();
-    }
-  }
-
-  setInterval(recargarPaginaSiNoTemaAbierto, 5000);
 {% endjavascript %}
 
 {% schema %}

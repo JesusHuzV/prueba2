@@ -364,7 +364,14 @@
     const temaAbierto = document.querySelector('.preguntas-tema[style="display: block;"]');
     return temaAbierto === null;
   }
+  function recargarPaginaSiNoTemaAbierto() {
+ 
+    if (verificarTemaAbierto()) {
+      location.reload();
+    }
+  }
 
+  setInterval(recargarPaginaSiNoTemaAbierto, 5000);
 {% endjavascript %}
 
 {% schema %}

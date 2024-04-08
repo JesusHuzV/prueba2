@@ -562,22 +562,7 @@ sticky-header.header-wrapper.color-background-1.gradient.active {
       "url": {{ request.origin | append: page.url | json }}
     }
   </script>
-  <script>
-    window.addEventListener('scroll', function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-        let headerElement = document.querySelector('sticky-header.header-wrapper.color-background-1.gradient');
-    
-        if (scrollTop > 0) {
-            headerElement.classList.add('active');
-          alert("bajo")
-            return;
-        }
-    
-        headerElement.classList.remove('active');
-      alert("regreso")
-    });
-  </script>
+ 
 {%- endif -%}
 
 {% schema %}

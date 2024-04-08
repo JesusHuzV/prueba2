@@ -413,6 +413,21 @@ sticky-header.header-wrapper.color-background-1.gradient.active {
 {%- endif -%}
 
 {% javascript %}
+     window.addEventListener('scroll', function() {
+       alert("hola")
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+        let headerElement = document.querySelector('sticky-header.header-wrapper.color-background-1.gradient');
+    
+        if (scrollTop > 0) {
+            headerElement.classList.add('active');
+          alert("bajo")
+            return;
+        }
+    
+        headerElement.classList.remove('active');
+      alert("regreso")
+    });
   class StickyHeader extends HTMLElement {
     constructor() {
       super();
@@ -563,20 +578,7 @@ sticky-header.header-wrapper.color-background-1.gradient.active {
     }
   </script>
   <script>
-    window.addEventListener('scroll', function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-        let headerElement = document.querySelector('sticky-header.header-wrapper.color-background-1.gradient');
-    
-        if (scrollTop > 0) {
-            headerElement.classList.add('active');
-          alert("bajo")
-            return;
-        }
-    
-        headerElement.classList.remove('active');
-      alert("regreso")
-    });
+ 
   </script>
 {%- endif -%}
 

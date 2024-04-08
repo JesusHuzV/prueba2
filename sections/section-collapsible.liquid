@@ -306,7 +306,6 @@
     // Añadir la clase twcss-text-amber-500 al primer botón
     primerBoton.classList.add('twcss-text-amber-500');
   }
-  let preguntaDesplegada = true; // Bandera para indicar si alguna pregunta está desplegada
 
   const botonesPregunta = document.querySelectorAll('.boton-pregunta');
 
@@ -346,7 +345,20 @@
 
     // Abre la pregunta seleccionada
     var preguntaMostrar = document.getElementById(id);
-    preguntaMostrar.style.display = 'block';
+
+    // Verificar si ninguna pregunta está mostrando, y si es así, mostrar la primera por defecto
+    var todasOcultas = true;
+    preguntasRespuestasTema.forEach(function (item) {
+      if (item.style.display === 'block') {
+        todasOcultas = false;
+      }
+    });
+
+    if (todasOcultas && preguntasRespuestasTema.length > 0) {
+      preguntasRespuestasTema[0].style.display = 'block';
+    } else {
+      preguntaMostrar.style.display = 'block';
+    }
   }
 {% endjavascript %}
 

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
   const showMoreButton = document.getElementById('showMoreButton');
   const testimonials = document.querySelectorAll('.custon123');
 
@@ -88,3 +88,4 @@ document.addEventListener('DOMContentLoaded', function () {
     primerBoton.classList.add('twcss-text-amber-500');
   }
 });
+*/

@@ -130,6 +130,7 @@
 .header__inline-menu .list-menu__item.header__active-menu-item {
   background-color: #{{  section.settings.color_font_menu_bg }}; /* Color de fondo cuando el enlace está activo */
 }
+  /*
   sticky-header.header-wrapper.color-background-1.gradient {
     background: transparent;
     position: fixed;
@@ -140,7 +141,7 @@
 sticky-header.header-wrapper.color-background-1.gradient.active {
     background: #fff;
     padding-top: 0px;
-}
+}*/
 .header-wrapper--border-bottom {
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.08);
 }
@@ -413,6 +414,7 @@ sticky-header.header-wrapper.color-background-1.gradient.active {
 {%- endif -%}
 
 {% javascript %}
+  /*
      window.addEventListener('scroll', function() {
        alert("hola")
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -427,7 +429,7 @@ sticky-header.header-wrapper.color-background-1.gradient.active {
     
         headerElement.classList.remove('active');
       alert("regreso")
-    });
+    });*/
   class StickyHeader extends HTMLElement {
     constructor() {
       super();

@@ -63,7 +63,7 @@
       ],
       "settings": {
         "product": "",
-        "color_scheme": "",
+        "color_scheme": "inverse",
         "secondary_background": false,
         "media_size": "medium",
         "constrain_to_viewport": true,

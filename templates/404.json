@@ -82,8 +82,8 @@
         "text_gxwPHi": {
           "type": "text",
           "settings": {
-            "name": "lorem ipsum",
-            "titleuno": "lorem ipsum",
+            "name": "lorem ipsum 1 Test name",
+            "titleuno": "lorem ipsum 1 test title  2",
             "contentuno": "<p>asdlorem ipsum<\/p>",
             "titledos": "lorem ipsum",
             "contentdos": "<p>lorem ipsum<\/p>",
@@ -91,6 +91,20 @@
             "contenttres": "<p>lorem ipsum<\/p>",
             "titlecuatro": "lorem ipsum",
             "contentcuatro": "<p>lorem ipsum<\/p>"
+          }
+        },
+        "text_kwcnek": {
+          "type": "text",
+          "settings": {
+            "name": "Test 4",
+            "titleuno": "",
+            "contentuno": "",
+            "titledos": "",
+            "contentdos": "",
+            "titletres": "",
+            "contenttres": "",
+            "titlecuatro": "",
+            "contentcuatro": ""
           }
         },
         "text_ptfymW": {
@@ -138,13 +152,14 @@
       },
       "block_order": [
         "text_gxwPHi",
+        "text_kwcnek",
         "text_ptfymW",
         "text_xFyf3m",
         "text_DzPYLg"
       ],
       "settings": {
         "color_scheme": "",
-        "background_color_card": "#dd1d1d",
+        "background_color_card": "#401ddd",
         "title": "What our customers say",
         "padding_top": 80,
         "padding_bottom": 80

@@ -76,8 +76,9 @@
         "text_mrm3FL": {
           "type": "text",
           "settings": {
-            "name": "",
-            "content": ""
+            "image": "shopify:\/\/shop_images\/r4.jpg",
+            "name": "3",
+            "content": "<p>4<\/p>"
           }
         }
       },

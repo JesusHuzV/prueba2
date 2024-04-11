@@ -45,10 +45,62 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "section_testimonials_KneLUw": {
+      "type": "section-testimonials",
+      "blocks": {
+        "text_3xnTzh": {
+          "type": "text",
+          "settings": {
+            "name": "",
+            "content": ""
+          }
+        },
+        "text_U3zMAx": {
+          "type": "text",
+          "settings": {
+            "name": "",
+            "content": ""
+          }
+        },
+        "text_MtmBdn": {
+          "type": "text",
+          "settings": {
+            "name": "",
+            "content": ""
+          }
+        },
+        "text_mrm3FL": {
+          "type": "text",
+          "settings": {
+            "name": "",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_3xnTzh",
+        "text_U3zMAx",
+        "text_MtmBdn",
+        "text_mrm3FL"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "background_color_card": "#ffffff",
+        "background_alpha": 1,
+        "subtitle": "What our customers say",
+        "title": "What our customers say",
+        "description": "Lorem ipsum dolor sit amet dolor consectetur adipiscing elitipsum sit",
+        "link_text": "See more reviews",
+        "link_url": "\/",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "section_testimonials_KneLUw"
   ]
 }

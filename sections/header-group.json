@@ -68,8 +68,9 @@
         "text_MtmBdn": {
           "type": "text",
           "settings": {
-            "name": "",
-            "content": ""
+            "image": "shopify:\/\/shop_images\/Main_88a688c9-96dd-4256-80f7-0d8661ee9ef4.jpg",
+            "name": "1",
+            "content": "<p>2<\/p>"
           }
         },
         "text_mrm3FL": {

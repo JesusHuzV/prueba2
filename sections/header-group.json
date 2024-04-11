@@ -52,8 +52,9 @@
         "text_3xnTzh": {
           "type": "text",
           "settings": {
-            "name": "",
-            "content": ""
+            "image": "shopify:\/\/shop_images\/giftcard_e4ad3d02-bb92-424f-8d12-8621e76c79cd.jpg",
+            "name": "Test 1",
+            "content": "<p>Test 1<\/p>"
           }
         },
         "text_U3zMAx": {

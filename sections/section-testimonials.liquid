@@ -1,7 +1,24 @@
+{%- style -%}
+  #myCheckbox:checked ~ .twcss-columns-1 .custon123 {
+    display: block;
+  }
+{%- endstyle -%}
 <section
   class='color-{{ section.settings.color_scheme }} twcss-bg-brand-light-blue'
   style='background-image: url("{{ section.settings.bg_image | image_url }}");'
 >
+  <!--
+    mnnnnnnnnnnnnnnn
+    <input type='checkbox' id='myCheckbox' class='twcss-hidden'>
+
+    <label for='myCheckbox' class='twcss-cursor-pointer'>Seleccionar</label>
+
+    <div id='content' class='twcss-bg-gray-200 twcss-p-4 twcss-hidden'>
+      <p class='twcss-text-lg'>Contenido que se muestra cuando el checkbox está seleccionado</p>
+    </div>
+
+     mnnnnnnnnnnnnnnn
+  -->
   <div
     class='lg:twcss-px-100 md:twcss-px-50'
     style='max-width:1200px; margin-left: auto; margin-right: auto;'
@@ -39,9 +56,13 @@
         </div>
 
         <div class='twcss-col-span-12 lg:twcss-col-span-7'>
+          <input type='checkbox' id='myCheckbox' class='twcss-hidden' style='position:absolute;left:-9999px;'>
           <div class='twcss-columns-1 twcss-gap-y-16 lg:twcss-columns-2 lg:twcss-gap-y-20 lg:twcss-gap-x-4'>
             {%- for block in section.blocks -%}
-              <div class='custon123 twcss-pt-14 {% if section.blocks.size == 3 or section.blocks.size == 4 %} first:twcss-hidden last:twcss-hidden {% endif %} lg:first:twcss-block lg:last:twcss-block lg:first:twcss-pt-0 lg:twcss-pt-20 lg:twcss-pr-10'>
+              <div
+                id='content'
+                class='custon123 twcss-pt-14 {% if forloop.index > 2 %} twcss-hidden lg:twcss-block {% endif %} lg:first:twcss-pt-0 lg:twcss-pt-20 lg:twcss-pr-10'
+              >
                 <div
                   class='twcss-bg-white twcss-p-10 twcss-mx-2 twcss-mb-5 twcss-rounded-2xl lg:twcss-p-8 twcss-pb-14 twcss-px-14'
                   style='background-color: {{ section.settings.background_color_card | color_modify: 'alpha', section.settings.background_alpha }};'
@@ -61,6 +82,9 @@
                     <p class='twcss-font-bold twcss-w-full twcss-text-4xl twcss-font-medium twcss-tracking-tight'>
                       {{ block.settings.name }}
                     </p>
+                    <p class='twcss-font-bold twcss-w-full twcss-text-4xl twcss-font-medium twcss-tracking-tight'>
+                      {{ block.settings.name }}
+                    </p>
                   {%- endif -%}
 
                   {%- if block.settings.content != blank -%}
@@ -72,18 +96,12 @@
               </div>
             {%- endfor -%}
           </div>
-
           <div class='botontt lg:twcss-hidden twcss-flex twcss-mx-3 twcss-gap-2 twcss-justify-center twcss-px-16 twcss-py-3 twcss-mt-6 twcss-font-semibold twcss-rounded-md twcss-border-2 twcss-border-solid twcss-border-neutral-100 twcss-leading-[124%]'>
-            {% if section.blocks.size > 2 %}
-              <a
-                href='{{ section.settings.link_url }}'
-                class='twcss-no-underline twcss-text-brand-cta-blue twcss-text-x2 twcss-font-medium'
-                id='showMoreButton'
-                onclick='return false;'
-              >
-                {{ section.settings.link_text }}
-              </a>
-            {% endif %}
+            <label
+              for='myCheckbox'
+              class='twcss-cursor-pointer wcss-no-underline twcss-text-brand-cta-blue twcss-text-x2 twcss-font-medium'
+              >Seleccionar</label
+            >
           </div>
         </div>
       </div>
@@ -93,7 +111,7 @@
 
 {% schema %}
 {
-  "name": "Testimonials",
+  "name": "Testimonials2",
   "max_blocks": 4,
   "settings": [
     {
@@ -206,7 +224,7 @@
   ],
   "presets": [
     {
-      "name": "Testimonials"
+      "name": "Testimonials2"
     }
   ]
 }

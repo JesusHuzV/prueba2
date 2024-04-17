@@ -164,11 +164,134 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "newsletter_TnTTBg": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_ikTPCd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_C8McR8": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.<\/p>"
+          }
+        },
+        "email_form_MaJC3H": {
+          "type": "email_form",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "heading_ikTPCd",
+        "paragraph_C8McR8",
+        "email_form_MaJC3H"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 84
+      }
+    },
+    "section_features_grid_rfRmqt": {
+      "type": "section-features-grid",
+      "blocks": {
+        "item_DPUfpY": {
+          "type": "item",
+          "settings": {
+            "display_image": true,
+            "title": "Feature",
+            "title_weight": "700",
+            "title_transform": "capitalize",
+            "title_size": 24,
+            "title_color": "#4A5568",
+            "title_align": "twcss-text-center",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea velit iure blanditiis autem facilis minima nesciunt exercitationem!<\/p>",
+            "text_size": 16,
+            "text_color": "#718096",
+            "text_align": "twcss-text-center"
+          }
+        },
+        "item_EmqKgF": {
+          "type": "item",
+          "settings": {
+            "display_image": true,
+            "title": "Feature",
+            "title_weight": "700",
+            "title_transform": "capitalize",
+            "title_size": 24,
+            "title_color": "#4A5568",
+            "title_align": "twcss-text-center",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea velit iure blanditiis autem facilis minima nesciunt exercitationem!<\/p>",
+            "text_size": 16,
+            "text_color": "#718096",
+            "text_align": "twcss-text-center"
+          }
+        },
+        "item_mTrTaX": {
+          "type": "item",
+          "settings": {
+            "display_image": true,
+            "title": "Feature",
+            "title_weight": "700",
+            "title_transform": "capitalize",
+            "title_size": 24,
+            "title_color": "#4A5568",
+            "title_align": "twcss-text-center",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea velit iure blanditiis autem facilis minima nesciunt exercitationem!<\/p>",
+            "text_size": 16,
+            "text_color": "#718096",
+            "text_align": "twcss-text-center"
+          }
+        },
+        "item_EqxEab": {
+          "type": "item",
+          "settings": {
+            "display_image": true,
+            "title": "Feature",
+            "title_weight": "700",
+            "title_transform": "capitalize",
+            "title_size": 24,
+            "title_color": "#4A5568",
+            "title_align": "twcss-text-center",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea velit iure blanditiis autem facilis minima nesciunt exercitationem!<\/p>",
+            "text_size": 16,
+            "text_color": "#718096",
+            "text_align": "twcss-text-center"
+          }
+        }
+      },
+      "block_order": [
+        "item_DPUfpY",
+        "item_EmqKgF",
+        "item_mTrTaX",
+        "item_EqxEab"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "spacing": 10,
+        "title": "",
+        "title_weight": "700",
+        "title_transform": "capitalize",
+        "title_size": 42,
+        "title_color": "#4A5568",
+        "title_align": "twcss-text-center",
+        "grid": 4,
+        "grid_spacing": 10
+      }
     }
   },
   "order": [
     "featured_product_ABFQUc",
     "main",
-    "section_collapsible_nmbXzf"
+    "section_collapsible_nmbXzf",
+    "newsletter_TnTTBg",
+    "section_features_grid_rfRmqt"
   ]
 }

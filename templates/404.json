@@ -82,13 +82,21 @@
         "text_gxwPHi": {
           "type": "text",
           "settings": {
-            "name": "lorem ipsum 1 Test name"
+            "name": "lorem ipsum 1 Test name",
+            "title_one": "",
+            "content_one": "",
+            "title_two": "ss",
+            "content_two": "<p>ss<\/p>",
+            "title_three": "",
+            "content_three": "",
+            "title_four": "",
+            "content_four": ""
           }
         },
-        "text_mdWPpK": {
+        "text_xFyf3m": {
           "type": "text",
           "settings": {
-            "name": "",
+            "name": "lorem ipsum",
             "title_one": "",
             "content_one": "",
             "title_two": "",
@@ -98,31 +106,10 @@
             "title_four": "",
             "content_four": ""
           }
-        },
-        "text_kwcnek": {
-          "type": "text",
-          "settings": {
-            "name": "Test 4"
-          }
-        },
-        "text_ptfymW": {
-          "type": "text",
-          "settings": {
-            "name": "lorem ipsum"
-          }
-        },
-        "text_xFyf3m": {
-          "type": "text",
-          "settings": {
-            "name": "lorem ipsum"
-          }
         }
       },
       "block_order": [
         "text_gxwPHi",
-        "text_mdWPpK",
-        "text_kwcnek",
-        "text_ptfymW",
         "text_xFyf3m"
       ],
       "settings": {

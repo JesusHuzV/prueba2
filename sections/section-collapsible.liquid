@@ -52,7 +52,7 @@
               data-tema='{{ block.id }}'
               id='{{ block.id }}'
             >
-            {%- if section.settings.title_one != blank and section.settings.content_one != blank-%}
+            {%- if block.settings.title_one != blank and block.settings.content_one != blank-%}
               <div
                 id='{{ block.id }}-1'
                 role='tabpanel'
@@ -107,7 +107,7 @@
                 </details>
               </div>
             {% endif %}
-            {%- if section.settings.title_two != blank and section.settings.content_two != blank-%}
+            {%- if block.settings.title_two != blank and block.settings.content_two != blank-%}
               <div
                 id='{{ block.id }}-2'
                 role='tabpanel'
@@ -162,7 +162,7 @@
                 </details>
               </div>
             {% endif %}
-            {%- if section.settings.title_three != blank and section.settings.content_three != blank-%}
+            {%- if block.settings.title_three != blank and block.settings.content_three != blank-%}
               <div
                 id='{{ block.id }}-3'
                 role='tabpanel'
@@ -218,7 +218,7 @@
                 </details>
               </div>
             {% endif %}
-         
+        {%- if block.settings.title_three != blank and block.settings.content_three != blank-%}
               <div
                 id='{{ block.id }}-4'
                 role='tabpanel'
@@ -273,7 +273,7 @@
                   </div>
                 </details>
               </div>
-         
+          {% endif %}
             </div>
           {%- endfor -%}
         </div>

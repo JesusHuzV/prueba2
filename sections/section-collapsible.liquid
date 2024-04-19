@@ -52,7 +52,7 @@
               data-tema='{{ block.id }}'
               id='{{ block.id }}'
             >
-            {% if block.settings.title_one != empty and block.settings.content_one != empty %}
+              {%- if section.settings.title != blank and section.settings.content_one != blank-%}
               <div
                 id='{{ block.id }}-1'
                 role='tabpanel'

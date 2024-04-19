@@ -148,6 +148,34 @@
             "titlecuatro": "",
             "contentcuatro": ""
           }
+        },
+        "text_YV43U4": {
+          "type": "text",
+          "settings": {
+            "name": "",
+            "titleuno": "",
+            "contentuno": "",
+            "titledos": "",
+            "contentdos": "",
+            "titletres": "",
+            "contenttres": "",
+            "titlecuatro": "",
+            "contentcuatro": ""
+          }
+        },
+        "text_h8JdJB": {
+          "type": "text",
+          "settings": {
+            "name": "sdfffff",
+            "titleuno": "",
+            "contentuno": "",
+            "titledos": "",
+            "contentdos": "",
+            "titletres": "",
+            "contenttres": "",
+            "titlecuatro": "",
+            "contentcuatro": ""
+          }
         }
       },
       "block_order": [
@@ -155,7 +183,9 @@
         "text_kwcnek",
         "text_ptfymW",
         "text_xFyf3m",
-        "text_DzPYLg"
+        "text_DzPYLg",
+        "text_YV43U4",
+        "text_h8JdJB"
       ],
       "settings": {
         "color_scheme": "",

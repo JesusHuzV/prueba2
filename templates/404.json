@@ -83,14 +83,14 @@
           "type": "text",
           "settings": {
             "name": "lorem ipsum 1 Test name",
-            "title_one": "",
-            "content_one": "",
+            "title_one": "eeee",
+            "content_one": "<p>eeee<\/p>",
             "title_two": "ss",
             "content_two": "<p>ss<\/p>",
-            "title_three": "",
-            "content_three": "",
-            "title_four": "",
-            "content_four": ""
+            "title_three": "eee",
+            "content_three": "<p>eee<\/p>",
+            "title_four": "eee",
+            "content_four": "<p>eee<\/p>"
           }
         },
         "text_xFyf3m": {

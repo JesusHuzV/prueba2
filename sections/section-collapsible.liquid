@@ -24,10 +24,9 @@
         <div class='twcss-col-span-12 lg:twcss-col-span-4 lg:twcss-mt-[15px]'>
           {%- for block in section.blocks -%}
             <div class='twcss-font-bold twcss-grid twcss-grid-cols-1 twcss-justify-start'>
-              <!-- twcss-font-bold twcss-w-full twcss-text-4xl twcss-font-medium twcss-tracking-tight -->
               {%- if block.settings.name != blank -%}
                 <button
-                  class='twcss-font-medium twcss-text-left lg:twcss-text-4xl twcss-text-3xl boton-pregunta twcss-py-8'
+                  class='twcss-font-medium twcss-text-left lg:twcss-text-4xl twcss-text-3xl question-button twcss-py-8'
                   role='tab'
                   id='tab-1-trigger'
                   aria-selected='false'
@@ -48,19 +47,19 @@
         <div class='twcss-col-span-12 lg:twcss-col-span-8 lg:twcss-mt-[25px]'>
           {%- for block in section.blocks -%}
             <div
-              class='preguntas-tema'
+              class='topic-questions'
               style='display: none;'
               data-tema='{{ block.id }}'
               id='{{ block.id }}'
             >
-              <!-- block -->
+            {% if block.settings.title_one != empty and block.settings.content_one != empty %}
               <div
                 id='{{ block.id }}-1'
                 role='tabpanel'
                 tabindex='-1'
                 aria-hidden='false'
                 aria-labelledby='tab-1-trigger'
-                class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden'
+                class='ask twcss-grid twcss-gap-4 aria-hidden:twcss-hidden'
                 data-tema='{{ block.id }}'
               >
                 <details
@@ -72,15 +71,11 @@
                     id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
                     class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
                   >
-                    {%- if block.settings.titleuno != blank -%}
+                    {%- if block.settings.title_one != blank -%}
                       <p class='twcss-font-medium lg:twcss-text-4xl twcss-text-3xl twcss-grid twcss-grid-cols-1 twcss-justify-start lg:twcss-mt-[5px] lg:twcss-mb-[5px]'>
-                        <!--
-                          ttwcss-text-[22px]/7 twcss-flex-1 twcss-line-clamp-1 [&amp;>span]:twcss-text-brand-cta-blue lg:twcss-text-2xl lg:twcss-mt-[25px]
-                        -->
-                        {{ block.settings.titleuno }}
+                        {{ block.settings.title_one }}
                       </p>
                     {%- endif -%}
-                    <!-- Chevrón hacia arriba -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
@@ -89,8 +84,6 @@
                     >
                       <path fill-rule="evenodd" d="M10 6.707l4.146 4.147a.5.5 0 00.708-.708l-4.5-4.5a.5.5 0 00-.708 0l-4.5 4.5a.5.5 0 10.708.708L10 6.707z" clip-rule="evenodd"/>
                     </svg>
-
-                    <!-- Chevrón hacia abajo -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
@@ -102,25 +95,25 @@
                   </summary>
 
                   <div
-                    class='respuesta lg:twcss-mt-8 twcss-mt-6'
+                    class='answer lg:twcss-mt-8 twcss-mt-6'
                     data-tema='{{ block.id }}'
                   >
-                    {%- if block.settings.contentuno != blank -%}
+                    {%- if block.settings.content_one != blank -%}
                       <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-x3 twcss-text-1xl'>
-                        {{ block.settings.contentuno }}
+                        {{ block.settings.content_one }}
                       </p>
                     {%- endif -%}
                   </div>
                 </details>
               </div>
-              <!-- block -->
+              {% endif %}
               <div
                 id='{{ block.id }}-2'
                 role='tabpanel'
                 tabindex='-1'
                 aria-hidden='false'
                 aria-labelledby='tab-2-trigger'
-                class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
+                class='ask twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
                 data-tema='{{ block.id }}'
               >
                 <details
@@ -131,13 +124,12 @@
                     id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
                     class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
                   >
-                    {%- if block.settings.titledos != blank -%}
+                    {%- if block.settings.title_two != blank -%}
                       <p class='twcss-font-medium lg:twcss-text-4xl twcss-text-3xl twcss-grid twcss-grid-cols-1 twcss-justify-start lg:twcss-mt-[5px] lg:twcss-mb-[5px]'>
-                        {{ block.settings.titledos }}
+                        {{ block.settings.title_two }}
                       </p>
                     {%- endif -%}
 
-                    <!-- Chevrón hacia arriba -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
@@ -146,8 +138,6 @@
                     >
                       <path fill-rule="evenodd" d="M10 6.707l4.146 4.147a.5.5 0 00.708-.708l-4.5-4.5a.5.5 0 00-.708 0l-4.5 4.5a.5.5 0 10.708.708L10 6.707z" clip-rule="evenodd"/>
                     </svg>
-
-                    <!-- Chevrón hacia abajo -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
@@ -159,25 +149,25 @@
                   </summary>
 
                   <div
-                    class='respuesta lg:twcss-mt-6 twcss-mt-6'
+                    class='answer lg:twcss-mt-6 twcss-mt-6'
                     data-tema='{{ block.id }}'
                   >
-                    {%- if block.settings.contentdos != blank -%}
+                    {%- if block.settings.content_two != blank -%}
                       <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-2xl'>
-                        {{ block.settings.contentdos }}
+                        {{ block.settings.content_two }}
                       </p>
                     {%- endif -%}
                   </div>
                 </details>
               </div>
-              <!-- block -->
+
               <div
                 id='{{ block.id }}-3'
                 role='tabpanel'
                 tabindex='-1'
                 aria-hidden='false'
                 aria-labelledby='tab-2-trigger'
-                class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
+                class='ask twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
                 data-tema='{{ block.id }}'
               >
                 <details
@@ -188,13 +178,12 @@
                     id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
                     class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
                   >
-                    {%- if block.settings.titletres != blank -%}
+                    {%- if block.settings.title_three != blank -%}
                       <p class='twcss-font-medium lg:twcss-text-4xl twcss-text-3xl twcss-grid twcss-grid-cols-1 twcss-justify-start lg:twcss-mt-[5px] lg:twcss-mb-[5px]'>
-                        {{ block.settings.titletres }}
+                        {{ block.settings.title_three }}
                       </p>
                     {%- endif -%}
 
-                    <!-- Chevrón hacia arriba -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
@@ -204,7 +193,6 @@
                       <path fill-rule="evenodd" d="M10 6.707l4.146 4.147a.5.5 0 00.708-.708l-4.5-4.5a.5.5 0 00-.708 0l-4.5 4.5a.5.5 0 10.708.708L10 6.707z" clip-rule="evenodd"/>
                     </svg>
 
-                    <!-- Chevrón hacia abajo -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
@@ -216,25 +204,25 @@
                   </summary>
 
                   <div
-                    class='respuesta lg:twcss-mt-6 twcss-mt-6'
+                    class='answer lg:twcss-mt-6 twcss-mt-6'
                     data-tema='{{ block.id }}'
                   >
-                    {%- if block.settings.contenttres != blank -%}
+                    {%- if block.settings.content_three != blank -%}
                       <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-2xl'>
-                        {{ block.settings.contenttres }}
+                        {{ block.settings.content_three }}
                       </p>
                     {%- endif -%}
                   </div>
                 </details>
               </div>
-              <!-- block -->
+
               <div
                 id='{{ block.id }}-4'
                 role='tabpanel'
                 tabindex='-1'
                 aria-hidden='false'
                 aria-labelledby='tab-2-trigger'
-                class='pregunta twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
+                class='ask twcss-grid twcss-gap-4 aria-hidden:twcss-hidden display:none;'
                 data-tema='{{ block.id }}'
               >
                 <details
@@ -245,13 +233,12 @@
                     id='Summary-c2bbcd7f-1fbc-4a1e-b950-bb1961ea9d2a-template--15980319932509__c38d98ff-9d14-4d52-b57a-ccb0c975eb9d'
                     class='twcss-flex twcss-gap-4 twcss-items-center twcss-justify-between'
                   >
-                    {%- if block.settings.titlecuatro != blank -%}
+                    {%- if block.settings.title_four != blank -%}
                       <p class='twcss-font-medium lg:twcss-text-4xl twcss-text-3xl twcss-grid twcss-grid-cols-1 twcss-justify-start lg:twcss-mt-[5px] lg:twcss-mb-[5px]'>
-                        {{ block.settings.titlecuatro }}
+                        {{ block.settings.title_four }}
                       </p>
                     {%- endif -%}
 
-                    <!-- Chevrón hacia arriba -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
@@ -261,7 +248,6 @@
                       <path fill-rule="evenodd" d="M10 6.707l4.146 4.147a.5.5 0 00.708-.708l-4.5-4.5a.5.5 0 00-.708 0l-4.5 4.5a.5.5 0 10.708.708L10 6.707z" clip-rule="evenodd"/>
                     </svg>
 
-                    <!-- Chevrón hacia abajo -->
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
                       viewBox='0 0 20 20'
@@ -273,12 +259,12 @@
                   </summary>
 
                   <div
-                    class='respuesta lg:twcss-mt-6 twcss-mt-6'
+                    class='answer lg:twcss-mt-6 twcss-mt-6'
                     data-tema='{{ block.id }}'
                   >
-                    {%- if block.settings.contentcuatro != blank -%}
+                    {%- if block.settings.content_four != blank -%}
                       <p class='twcss-font-thin twcss-text-secondary-grey-1 lg:twcss-text-xl twcss-text-2xl'>
-                        {{ block.settings.contentcuatro }}
+                        {{ block.settings.content_four }}
                       </p>
                     {%- endif -%}
                   </div>
@@ -293,85 +279,70 @@
 </section>
 
 {% javascript %}
-  const primerBoton = document.querySelector('.boton-pregunta');
+  const firstbutton = document.querySelector('.question-button');
 
-  // Verificar si se encontró algún botón de pregunta
-  if (primerBoton) {
-    // Obtener el ID del tema asociado al primer botón de pregunta
-    const idPrimerTema = primerBoton.getAttribute('data-id');
-
-    // Mostrar las preguntas y respuestas del primer tema por defecto
-    mostrarPreguntas(idPrimerTema);
-
-    // Añadir la clase twcss-text-amber-500 al primer botón
-    primerBoton.classList.add('twcss-text-amber-500');
+  if (firstbutton) {
+    const idPrimaryTheme = firstbutton.getAttribute('data-id');
+    showQuestions(idPrimaryTheme);
+    firstbutton.classList.add('twcss-text-amber-500');
   }
 
-  const botonesPregunta = document.querySelectorAll('.boton-pregunta');
+  const buttonsQuestion = document.querySelectorAll('.question-button');
 
-  botonesPregunta.forEach(function (boton) {
-    boton.addEventListener('click', function () {
-      const idTema = this.getAttribute('data-id');
-
-      // Muestra las preguntas y respuestas del tema seleccionado
-      cerrarTodasPreguntas();
-      mostrarPreguntas(idTema);
-
-      // Remover la clase twcss-text-amber-500 de todos los botones--------------
-      botonesPregunta.forEach(function (boton) {
-        boton.classList.remove('twcss-text-amber-500');
+  buttonsQuestion.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const idTheme = this.getAttribute('data-id');
+      closeAllQuestions();
+      showQuestions(idTheme);
+      buttonsQuestion.forEach(function (button) {
+        button.classList.remove('twcss-text-amber-500');
       });
-
-      // Añadir la clase twcss-text-amber-500 al botón actual-------------
       this.classList.add('twcss-text-amber-500');
     });
   });
 
-  function cerrarTodasPreguntas() {
-    const preguntasRespuestas = document.querySelectorAll('.preguntas-tema');
-    preguntasRespuestas.forEach(function (item) {
+  function closeAllQuestions() {
+    const QuestionsAnswers = document.querySelectorAll('.topic-questions');
+    QuestionsAnswers.forEach(function (item) {
       item.style.display = 'none';
     });
   }
 
-  function mostrarPreguntas(id) {
-    // Obtiene todas las preguntas del tema actual
-    var preguntasRespuestasTema = document.querySelectorAll('.preguntas-tema[data-tema="' + id + '"]');
+  function showQuestions(id) {
+    var QuestionsAnswersTheme = document.querySelectorAll('.topic-questions[data-tema="' + id + '"]');
 
-    // Cierra todas las preguntas del tema actual
-    preguntasRespuestasTema.forEach(function (item) {
+    QuestionsAnswersTheme.forEach(function (item) {
       item.style.display = 'none';
     });
 
-    // Abre la pregunta seleccionada
-    var preguntaMostrar = document.getElementById(id);
+    var questionShow = document.getElementById(id);
 
-    // Verificar si ninguna pregunta está mostrando, y si es así, mostrar la primera por defecto
-    var todasOcultas = true;
-    preguntasRespuestasTema.forEach(function (item) {
+    var allHidden = true;
+    QuestionsAnswersTheme.forEach(function (item) {
       if (item.style.display === 'block') {
-        todasOcultas = false;
+        allHidden = false;
       }
     });
 
-    if (todasOcultas && preguntasRespuestasTema.length > 0) {
-      preguntasRespuestasTema[0].style.display = 'block';
+    if (allHidden && QuestionsAnswersTheme.length > 0) {
+      QuestionsAnswersTheme[0].style.display = 'block';
     } else {
-      preguntaMostrar.style.display = 'block';
+      questionShow.style.display = 'block';
     }
   }
-    function verificarTemaAbierto() {
-    const temaAbierto = document.querySelector('.preguntas-tema[style="display: block;"]');
-    return temaAbierto === null;
+
+  function verifyTopicOpen() {
+    const openTheme = document.querySelector('.topic-questions[style="display: block;"]');
+    return openTheme === null;
   }
-  function recargarPaginaSiNoTemaAbierto() {
- /*test*/
-    if (verificarTemaAbierto()) {
+
+  function reloadPageYesNoTopicOpen() {
+    if (verifyTopicOpen()) {
       location.reload();
     }
   }
 
-  setInterval(recargarPaginaSiNoTemaAbierto, 5000);
+  setInterval(reloadPageYesNoTopicOpen, 5000);
 {% endjavascript %}
 
 {% schema %}
@@ -439,42 +410,42 @@
         },
         {
           "type": "text",
-          "id": "titleuno",
+          "id": "title_one",
           "label": "Title 1"
         },
         {
           "type": "richtext",
-          "id": "contentuno",
+          "id": "content_one",
           "label": "Description 1"
         },
         {
           "type": "text",
-          "id": "titledos",
+          "id": "title_two",
           "label": "Title 2"
         },
         {
           "type": "richtext",
-          "id": "contentdos",
+          "id": "content_two",
           "label": "Description 2"
         },
         {
           "type": "text",
-          "id": "titletres",
+          "id": "title_three",
           "label": "Title 3"
         },
         {
           "type": "richtext",
-          "id": "contenttres",
+          "id": "content_three",
           "label": "Description 3"
         },
         {
           "type": "text",
-          "id": "titlecuatro",
+          "id": "title_four",
           "label": "Title 4"
         },
         {
           "type": "richtext",
-          "id": "contentcuatro",
+          "id": "content_four",
           "label": "Description 4"
         }
       ]

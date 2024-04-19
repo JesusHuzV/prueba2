@@ -97,12 +97,40 @@
           "type": "text",
           "settings": {
             "name": "lorem ipsum",
-            "title_one": "",
-            "content_one": "",
+            "title_one": "ddd",
+            "content_one": "<p>dddd<\/p>",
             "title_two": "",
             "content_two": "",
-            "title_three": "",
-            "content_three": "",
+            "title_three": "ddd",
+            "content_three": "<p>ddd<\/p>",
+            "title_four": "",
+            "content_four": ""
+          }
+        },
+        "text_e7jYdB": {
+          "type": "text",
+          "settings": {
+            "name": "lorem ipsum",
+            "title_one": "ddd",
+            "content_one": "<p>dddd<\/p>",
+            "title_two": "",
+            "content_two": "",
+            "title_three": "ddd",
+            "content_three": "<p>ddd<\/p>",
+            "title_four": "",
+            "content_four": ""
+          }
+        },
+        "text_JB9cdT": {
+          "type": "text",
+          "settings": {
+            "name": "lorem ipsum",
+            "title_one": "ddd",
+            "content_one": "<p>dddd<\/p>",
+            "title_two": "",
+            "content_two": "",
+            "title_three": "ddd",
+            "content_three": "<p>ddd<\/p>",
             "title_four": "",
             "content_four": ""
           }
@@ -110,7 +138,9 @@
       },
       "block_order": [
         "text_gxwPHi",
-        "text_xFyf3m"
+        "text_xFyf3m",
+        "text_e7jYdB",
+        "text_JB9cdT"
       ],
       "settings": {
         "color_scheme": "",

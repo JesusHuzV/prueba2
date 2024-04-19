@@ -82,114 +82,52 @@
         "text_gxwPHi": {
           "type": "text",
           "settings": {
-            "name": "lorem ipsum 1 Test name",
-            "titleuno": "lorem ipsum 1 test title  2",
-            "contentuno": "<p>asdlorem ipsum<\/p>",
-            "titledos": "lorem ipsum",
-            "contentdos": "<p>lorem ipsum<\/p>",
-            "titletres": "lorem ipsum",
-            "contenttres": "<p>lorem ipsum<\/p>",
-            "titlecuatro": "",
-            "contentcuatro": ""
+            "name": "lorem ipsum 1 Test name"
+          }
+        },
+        "text_mdWPpK": {
+          "type": "text",
+          "settings": {
+            "name": "",
+            "title_one": "",
+            "content_one": "",
+            "title_two": "",
+            "content_two": "",
+            "title_three": "",
+            "content_three": "",
+            "title_four": "",
+            "content_four": ""
           }
         },
         "text_kwcnek": {
           "type": "text",
           "settings": {
-            "name": "Test 4",
-            "titleuno": "",
-            "contentuno": "",
-            "titledos": "",
-            "contentdos": "",
-            "titletres": "",
-            "contenttres": "",
-            "titlecuatro": "",
-            "contentcuatro": ""
+            "name": "Test 4"
           }
         },
         "text_ptfymW": {
           "type": "text",
           "settings": {
-            "name": "lorem ipsum",
-            "titleuno": "lorem ipsum",
-            "contentuno": "<p>asdlorem ipsum<\/p>",
-            "titledos": "lorem ipsum",
-            "contentdos": "<p>lorem ipsum<\/p>",
-            "titletres": "lorem ipsum",
-            "contenttres": "<p>lorem ipsum<\/p>",
-            "titlecuatro": "lorem ipsum",
-            "contentcuatro": "<p>lorem ipsum<\/p>"
+            "name": "lorem ipsum"
           }
         },
         "text_xFyf3m": {
           "type": "text",
           "settings": {
-            "name": "lorem ipsum",
-            "titleuno": "lorem ipsum",
-            "contentuno": "<p>asdlorem ipsum<\/p>",
-            "titledos": "lorem ipsum",
-            "contentdos": "<p>lorem ipsum<\/p>",
-            "titletres": "lorem ipsum",
-            "contenttres": "<p>lorem ipsum<\/p>",
-            "titlecuatro": "lorem ipsum",
-            "contentcuatro": "<p>lorem ipsum<\/p>"
-          }
-        },
-        "text_DzPYLg": {
-          "type": "text",
-          "settings": {
-            "name": "lorem ipsum",
-            "titleuno": "lorem ipsum",
-            "contentuno": "<p>asdlorem ipsum<\/p>",
-            "titledos": "lorem ipsum",
-            "contentdos": "<p>lorem ipsum<\/p>",
-            "titletres": "lorem ipsum",
-            "contenttres": "<p>lorem ipsum<\/p>",
-            "titlecuatro": "",
-            "contentcuatro": ""
-          }
-        },
-        "text_YV43U4": {
-          "type": "text",
-          "settings": {
-            "name": "",
-            "titleuno": "",
-            "contentuno": "",
-            "titledos": "",
-            "contentdos": "",
-            "titletres": "",
-            "contenttres": "",
-            "titlecuatro": "",
-            "contentcuatro": ""
-          }
-        },
-        "text_h8JdJB": {
-          "type": "text",
-          "settings": {
-            "name": "sdfffff",
-            "titleuno": "",
-            "contentuno": "",
-            "titledos": "",
-            "contentdos": "",
-            "titletres": "",
-            "contenttres": "",
-            "titlecuatro": "",
-            "contentcuatro": ""
+            "name": "lorem ipsum"
           }
         }
       },
       "block_order": [
         "text_gxwPHi",
+        "text_mdWPpK",
         "text_kwcnek",
         "text_ptfymW",
-        "text_xFyf3m",
-        "text_DzPYLg",
-        "text_YV43U4",
-        "text_h8JdJB"
+        "text_xFyf3m"
       ],
       "settings": {
         "color_scheme": "",
-        "background_color_card": "#401ddd",
+        "background_color_card": "#dd1d1d",
         "title": "What our customers say",
         "padding_top": 80,
         "padding_bottom": 80

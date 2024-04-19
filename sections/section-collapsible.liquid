@@ -335,14 +335,7 @@
     const openTheme = document.querySelector('.topic-questions[style="display: block;"]');
     return openTheme === null;
   }
-
-  function reloadPageYesNoTopicOpen() {
-    if (verifyTopicOpen()) {
-      location.reload();
-    }
-  }
-
-  setInterval(reloadPageYesNoTopicOpen, 5000);
+  
 {% endjavascript %}
 
 {% schema %}
